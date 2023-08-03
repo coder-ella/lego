@@ -1,3 +1,3 @@
 import cargo_connect_mission_1
 
-print("this is the main program")
+print("This is the main program")
