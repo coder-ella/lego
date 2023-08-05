@@ -21,8 +21,7 @@ def do_menu(hub):
         pressed = ()
         while not pressed:
             pressed = hub.buttons.pressed()
-            wait(10)    
-        print(f"pressed: {pressed}")
+            wait(10)
         # and then wait for the button to be released.
         while hub.buttons.pressed():
             wait(10)
@@ -42,13 +41,10 @@ def do_menu(hub):
             menu_index += 1
             if (menu_index >= num_options):
                 menu_index = 0
-        print(f"menu_index:{menu_index}")
     
     # Now we want to use the Center button as the stop button again.
     hub.system.set_stop_button(Button.CENTER)
     selected = menu_options[menu_index]
-    print(f"menu option selected {selected}")
-    
     return selected
 
 selected = ""
