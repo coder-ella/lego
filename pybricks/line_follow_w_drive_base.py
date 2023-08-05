@@ -1,3 +1,6 @@
+# video1: https://youtu.be/LfHmr87trF4
+# video2: https://youtu.be/aiKuc22Dqf4
+
 from pybricks.hubs import InventorHub
 from pybricks.pupdevices import Motor, ColorSensor, UltrasonicSensor
 from pybricks.parameters import Button, Color, Direction, Port, Side, Stop
