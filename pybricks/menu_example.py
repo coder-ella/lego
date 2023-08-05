@@ -2,16 +2,19 @@ from pybricks.hubs import PrimeHub
 from pybricks.parameters import Button, Color, Direction, Port, Stop
 from pybricks.tools import wait
 
-menu_options = ("F", "L", "R", "B", "Q") #forward, left, right, back
+menu_options = ("F", "L", "R", "B", "X") #forward, left, right, back, exit
+menu_index = 0
 num_options = len(menu_options)
 hub = PrimeHub()
+
+# Clear terminal
+print("\x1b[H\x1b[2J", end="")
 
 def do_menu(hub):
     # Normally, the center button stops the program. But we want to use the
     # center button for our menu. So we can disable the stop button.
-
+    global menu_index
     hub.system.set_stop_button(None)
-    menu_index = 0
     while True:
         hub.display.char(menu_options[menu_index])
         # Wait for any button.
@@ -62,6 +65,7 @@ while True:
     elif selected == "R":
         print("turning right")
     elif selected == "B":
-        print("driving forward")
+        print("driving back")
     else:
         print("done!")
+        raise SystemExit("Closing program..")
