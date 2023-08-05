@@ -24,5 +24,11 @@ if __name__ == '__main__':
     bob = DriveBase(left_motor = motor_left, right_motor=motor_right,
     wheel_diameter = 55.6, axle_track = 95)
 
+    motor_attach_left = Motor(Port.C, Direction.CLOCKWISE,gears=[20,12])
+    motor_attach_right = Motor(Port.B, Direction.CLOCKWISE,gears=[20,12])
+    sensor = ColorSensor(Port.F)
+    sensor_2 = ColorSensor(Port.E)
+
+
     move_forward(bob)
     turn_45_l(bob)
