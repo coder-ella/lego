@@ -7,7 +7,7 @@ from pybricks.robotics import DriveBase
 from fn_diagnostics import run_diagnostics
 from fn_test import *
 from simple_test import simple_move
-from fn_line_follow_stop_3 import *
+from fn_cargo_connect_line_follow import *
 
 hub = InventorHub()
 motor_left = Motor(Port.A, Direction.COUNTERCLOCKWISE)
