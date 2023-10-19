@@ -57,18 +57,18 @@ def Everett_Grace_Function(hub, bob, moyrorR):
     
     bob.turn(111)
     bob.straight(35)
-    bob.settings(900)
+    bob.settings(straight_speed=900)
     
     moyrorR.run_angle(1001, 600)
     
-    bob.settings(600)
+    bob.settings(straight_speed=600)
     bob.straight(-50)
-    bob.settings(300)
+    bob.settings(straight_speed=300)
     
     # Light Show Mission
 
-    
-    bob.straight(00)
+    # Ella to check this
+    # bob.straight(00)
     bob.turn(90)
     moyrorR.run_angle(-700, 500)
     bob.straight(-200)
@@ -82,7 +82,7 @@ def Everett_Grace_Function(hub, bob, moyrorR):
     bob.straight(600)
     moyrorR.run_angle(-75, 230)
     
-    bob.settings(300)
+    bob.settings(straight_speed=300)
     bob.straight(-400)
     moyrorR.run_time(-1000, 800)
     bob.straight(100)
