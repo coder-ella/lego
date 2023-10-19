@@ -9,73 +9,81 @@ from pybricks.tools import wait, StopWatch
 # mission_run_1.py
 # it will allow the code to be later included in the menu
 
+#CHANGES TO MAKE
+# - Move less toward augmented reality
+# - Perfect turn to get to setup for light show
+# - 
 
 def Everett_Grace_Function(hub, bob, moyrorR):
+    # change the name of this function to what you are doing
+    # add required parameters like hub, bob
+    # eg of a good name: do_mission_run_1(hub, bob)
+    # update the name of your function,
+    # at the end of the code.
+
+
     #Clear terminal
     print("\x1b[H\x1b[2J", end="")
    
     print("...")
+    #example
+    #bob.straight(200, then=Stop.COAST)
     
     bob.settings(straight_acceleration= +300, turn_acceleration= +200)
     hub.light.on(Color.GREEN)
-    bob.straight(-50)
+    bob.straight(+-50)
     # Wallsquare
-    bob.straight(330)
+    bob.straight(+330)
     # Go toward printer
-    bob.turn(-45)
+    bob.turn(+-45)
     # Turn toward printer
-    bob.straight(200)
+    bob.straight(+200)
     # Ram printer
-    bob.straight(-100)
+    bob.straight(+-100)
     # Back away from 4d printer
-    bob.turn(40)
+    bob.turn(+40)
     # Turns to go forward
-    bob.straight(325)
+    bob.straight(+325)
     # Forward toward hologram war
-    bob.turn(-130)
+    bob.turn(+-130)
     # Turn toward hologram war
-    bob.straight(-250)
-    bob.straight(20)
-    bob.turn(35)
-    # Go towards light show mission
-    bob.straight(550)
+    bob.straight(+-350)
+    bob.straight(+50)
+    bob.turn(+35)
+    # Go towards fight show mission
+    bob.straight(+550)
     
     # Augmented Fakeality Mission
-    bob.turn(100)
-    bob.straight(35)
-    bob.settings(900)
-
-    # Put arm down to move lever
-    moyrorR.run_angle(1001, 600)
-
-    # Slowly move robot back to move lever
-    bob.settings(600)
-    bob.straight(-250)
-    bob.settings(300)
+    
+    bob.turn(+111)
+    bob.straight(+35)
+    bob.settings(+900)
+    
+    moyrorR.run_angle(+1001, +600)
+    
+    bob.settings(+600)
+    bob.straight(+-50)
+    bob.settings(+300)
     
     # Light Show Mission
 
     
-    bob.straight(160)
-    bob.turn(90)
+    bob.straight(00)
+    bob.turn(+90)
     moyrorR.run_angle(-700, 500)
-    bob.straight(-200)
+    bob.straight(+-200)
     bob.turn(92)
     bob.straight(-500)
+
     
-    moyrorR.run_angle(90)
+    moyrorR.run_angle(900,90)
 
     #Do lightshow mission
-
-    #Drive to mission
     bob.straight(600)
-    # Lift arms to raise light pointer
     moyrorR.run_angle(-75, 230)
-
-    # Back up from Light Show and square against wall
+    
+    bob.settings(300)
     bob.straight(-400)
-
-    # Find out if we need this code (go to camera mission)
     moyrorR.run_time(-1000, 800)
     bob.straight(100)
     bob.turn(30)
@@ -98,5 +106,3 @@ if __name__ == '__main__':
     # remember to rename the below name to match
     # your function name on line 11
     Everett_Grace_Function(hub, bob, moyrorR)
-
-
