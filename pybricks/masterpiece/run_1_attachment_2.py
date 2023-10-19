@@ -25,7 +25,7 @@ def Everett_Grace_Function(hub, bob, moyrorR):
     print("...")
     #example
     #bob.straight(200, then=Stop.COAST)
-    
+    '''
     bob.settings(straight_acceleration= 300, turn_acceleration= 200)
     hub.light.on(Color.GREEN)
     bob.straight(-50)
@@ -48,11 +48,11 @@ def Everett_Grace_Function(hub, bob, moyrorR):
     bob.straight(50)
     bob.turn(35)
     # Go towards fight show mission
-    bob.straight(550)
+    bob.straight(525)
     
     # Augmented Fakeality Mission
     
-    bob.turn(111)
+    bob.turn(100)
     bob.straight(35)
     bob.settings(straight_speed=900)
     
@@ -68,23 +68,33 @@ def Everett_Grace_Function(hub, bob, moyrorR):
     # bob.straight(00)
     bob.turn(90)
     moyrorR.run_angle(-700, 500)
-    bob.straight(-200)
-    bob.turn(92)
+    bob.straight(-180)
+    bob.turn(92)'''
     bob.straight(-500)
 
     
-    moyrorR.run_angle(900,90)
+    moyrorR.run_angle(900,570)
 
     #Do lightshow mission
+    bob.settings(straight_speed=150)
     bob.straight(600)
-    moyrorR.run_angle(-75, 230)
+    bob.straight(-30)
+    moyrorR.run_angle(-4005, 400)
     
     bob.settings(straight_speed=300)
     bob.straight(-400)
+    
     moyrorR.run_time(-1000, 800)
     bob.straight(100)
-    bob.turn(30)
-    bob.straight(700)
+    bob.turn(19)
+    bob.straight(699.6)
+    moyrorR.run_angle(9900, 700)
+    bob.turn(70)
+    moyrorR.run_angle(2982, -700)
+    bob.turn(20)
+    bob.straight(1000)
+    bob.turn(-60)
+    bob.straight(1000)
 
 
 # this code allows you to run this code directly without using
@@ -96,7 +106,7 @@ if __name__ == '__main__':
     motor_right = Motor(Port.D,Direction.CLOCKWISE)
     moyrorR = Motor(Port.B)
     #try GyroDriveBase
-    bob = DriveBase(left_motor = motor_left, right_motor=motor_right,
+    bob = GyroDriveBase(left_motor = motor_left, right_motor=motor_right,
     wheel_diameter = 55.6, axle_track = 83.79999999699997)
 
 
