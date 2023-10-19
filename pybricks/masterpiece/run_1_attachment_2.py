@@ -4,10 +4,7 @@ from pybricks.parameters import Button, Color, Direction, Port, Side, Stop
 from pybricks.robotics import DriveBase, GyroDriveBase
 from pybricks.tools import wait, StopWatch
 
-
-# copy this entire file and name it something like
-# mission_run_1.py
-# it will allow the code to be later included in the menu
+# https://docs.pybricks.com/en/latest/robotics.html
 
 #CHANGES TO MAKE
 # - Move less toward augmented reality
