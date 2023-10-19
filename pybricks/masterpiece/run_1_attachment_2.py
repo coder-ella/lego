@@ -29,49 +29,49 @@ def Everett_Grace_Function(hub, bob, moyrorR):
     #example
     #bob.straight(200, then=Stop.COAST)
     
-    bob.settings(straight_acceleration= +300, turn_acceleration= +200)
+    bob.settings(straight_acceleration= 300, turn_acceleration= 200)
     hub.light.on(Color.GREEN)
-    bob.straight(+-50)
+    bob.straight(-50)
     # Wallsquare
-    bob.straight(+330)
+    bob.straight(330)
     # Go toward printer
-    bob.turn(+-45)
+    bob.turn(-45)
     # Turn toward printer
-    bob.straight(+200)
+    bob.straight(200)
     # Ram printer
-    bob.straight(+-100)
+    bob.straight(-100)
     # Back away from 4d printer
-    bob.turn(+40)
+    bob.turn(40)
     # Turns to go forward
-    bob.straight(+325)
+    bob.straight(325)
     # Forward toward hologram war
-    bob.turn(+-130)
+    bob.turn(-130)
     # Turn toward hologram war
-    bob.straight(+-350)
-    bob.straight(+50)
-    bob.turn(+35)
+    bob.straight(-350)
+    bob.straight(50)
+    bob.turn(35)
     # Go towards fight show mission
-    bob.straight(+550)
+    bob.straight(550)
     
     # Augmented Fakeality Mission
     
-    bob.turn(+111)
-    bob.straight(+35)
-    bob.settings(+900)
+    bob.turn(111)
+    bob.straight(35)
+    bob.settings(900)
     
-    moyrorR.run_angle(+1001, +600)
+    moyrorR.run_angle(1001, 600)
     
-    bob.settings(+600)
-    bob.straight(+-50)
-    bob.settings(+300)
+    bob.settings(600)
+    bob.straight(-50)
+    bob.settings(300)
     
     # Light Show Mission
 
     
     bob.straight(00)
-    bob.turn(+90)
+    bob.turn(90)
     moyrorR.run_angle(-700, 500)
-    bob.straight(+-200)
+    bob.straight(-200)
     bob.turn(92)
     bob.straight(-500)
 
@@ -99,7 +99,7 @@ if __name__ == '__main__':
     motor_right = Motor(Port.D,Direction.CLOCKWISE)
     moyrorR = Motor(Port.B)
     bob = DriveBase(left_motor = motor_left, right_motor=motor_right,
-    wheel_diameter = +55.6, axle_track = +83.79999999699997)
+    wheel_diameter = 55.6, axle_track = 83.79999999699997)
 
 
     # call your function.
