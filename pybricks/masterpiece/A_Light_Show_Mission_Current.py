@@ -1,6 +1,6 @@
 from pybricks.hubs import InventorHub
 from pybricks.pupdevices import Motor, ColorSensor, UltrasonicSensor, ForceSensor
-from pybricks.parameters import Button, Color, Direction, Port, Side, Stop       
+from pybricks.parameters import Button, Color, Direction, Port, Side, Stop, Icon       
 from pybricks.robotics import DriveBase, GyroDriveBase
 from pybricks.tools import wait, StopWatch
 
@@ -11,13 +11,16 @@ from pybricks.tools import wait, StopWatch
 # - Perfect turn to get to setup for light show
 # - 
 
-def Everett_Grace_Function(hub, bob, moyrorR):
-    # change the name of this function to what you are doing
-    # add required parameters like hub, bob
-    # eg of a good name: do_mission_run_1(hub, bob)
-    # update the name of your function,
-    # at the end of the code.
+def light_show_run(hub, bob, moyrorR):
+    """
+    function for run 1
 
+
+    Arguments:
+        hub: the hub
+        bob: the drive base
+        moyrorR: The right attachment motor
+    """
 
     #Clear terminal
     print("\x1b[H\x1b[2J", end="")
@@ -29,28 +32,28 @@ def Everett_Grace_Function(hub, bob, moyrorR):
     bob.settings(straight_acceleration= 300, turn_acceleration= 200)
     hub.light.on(Color.GREEN)
     bob.straight(-50)
-    # Wallsquare
+    print("Wallsquare")
     bob.straight(330)
-    # Go toward printer
+    print("Go toward printer")
     bob.turn(-45)
-    # Turn toward printer
+    print("Turn toward printer")
     bob.straight(200)
-    # Ram printer
+    print("Ram printer")
     bob.straight(-100)
-    # Back away from 4d printer
+    print("Back away from 4d printer")
     bob.turn(40)
-    # Turns to go forward
+    print("Turns to go forward")
     bob.straight(325)
-    # Forward toward hologram war
+    print("Forward toward hologram war")
     bob.turn(-130)
-    # Turn toward hologram war
+    print("Turn toward hologram war")
     bob.straight(-350)
     bob.straight(50)
     bob.turn(35)
-    # Go towards fight show mission
+    print("Go towards fight show mission")
     bob.straight(525)
     
-    # Augmented Fakeality Mission
+    print("Augmented Fakeality Mission")
     
     bob.turn(100)
     bob.straight(35)
@@ -62,20 +65,20 @@ def Everett_Grace_Function(hub, bob, moyrorR):
     bob.straight(-50)
     bob.settings(straight_speed=300)
     
-    # Light Show Mission
+    print("gotp Light Show Mission")
 
-    # Ella to check this
-    # bob.straight(00)
     bob.turn(90)
     moyrorR.run_angle(-700, 500)
     bob.straight(-180)
     bob.turn(92)'''
+
+    print("start light show mission")
     bob.straight(-500)
 
     
     moyrorR.run_angle(900,570)
 
-    #Do lightshow mission
+    print("do light show mission")
     bob.settings(straight_speed=150)
     bob.straight(600)
     bob.straight(-30)
@@ -97,6 +100,12 @@ def Everett_Grace_Function(hub, bob, moyrorR):
     bob.straight(1000)
 
 
+    print("done")
+    hub.speaker.play_notes(["C4/4", "C4/4", "G4/4", "G4/4"])
+    hub.display.icon(Icon.HAPPY)
+    wait(200)
+
+
 # this code allows you to run this code directly without using
 # the menu system
 if __name__ == '__main__':
@@ -113,4 +122,4 @@ if __name__ == '__main__':
     # call your function.
     # remember to rename the below name to match
     # your function name on line 11
-    Everett_Grace_Function(hub, bob, moyrorR)
+    light_show_run(hub, bob, moyrorR)
