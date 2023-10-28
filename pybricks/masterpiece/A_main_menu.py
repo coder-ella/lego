@@ -26,9 +26,10 @@ num_options = len(menu_options)
 print("\x1b[H\x1b[2J", end="")
 
 def do_menu(hub):
+    # menu_index is global, so that it can remember what the last menu-index was
+    global menu_index
     # Normally, the center button stops the program. But we want to use the
     # center button for our menu. So we can disable the stop button.
-    global menu_index
     hub.system.set_stop_button(None)
     while True:
         hub.display.char(menu_options[menu_index])
@@ -46,6 +47,7 @@ def do_menu(hub):
         if Button.CENTER in pressed:
             # Center button, this is the selection button, so we can exit the
             # selection loop
+            print(f"Selected Index: {menu_index}")
             break
         elif Button.LEFT in pressed:
             # Left button, so decrement menu menu_index.
@@ -72,15 +74,13 @@ while True:
     selected = do_menu(hub)
     if selected == "1":
         light_show_run(hub, bob, motor_attach_right)
-        bob.stop()
     elif selected == "2":
         Everett_Grace_Function(hub, bob, motor_attach_left)
-        bob.stop()
     elif selected == "D":
         print(f"bob's settings are{bob.settings()}")
         run_diagnostics(hub)
-        bob.stop()
     else:
         print("done!")
+        # this is the only way to stop PyBricks
         raise SystemExit("Closing program..")
-
+    bob.stop()
