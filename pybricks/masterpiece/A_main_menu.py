@@ -2,7 +2,7 @@ from pybricks.hubs import InventorHub
 from pybricks.parameters import Button, Color, Direction, Port, Side, Stop, Icon
 from pybricks.tools import wait, StopWatch
 from pybricks.pupdevices import Motor, ColorSensor, UltrasonicSensor
-from pybricks.robotics import DriveBase, GyroDriveBase
+from pybricks.robotics import DriveBase
 
 from A_fn_diagnostics import run_diagnostics
 from A_joe3 import Everett_Grace_Function
@@ -15,7 +15,7 @@ motor_attach_left = Motor(Port.A)
 motor_attach_right = Motor(Port.B)
 #sensor = ColorSensor(Port.F)
 #sensor_2 = ColorSensor(Port.E)
-bob = GyroDriveBase(left_motor = motor_left, right_motor=motor_right,
+bob = DriveBase(left_motor = motor_left, right_motor=motor_right,
 wheel_diameter = 55.6, axle_track = 83.79999999699997)
 
 menu_options = ("1", "2", "D", "X") #forward, left, right, back, exit
