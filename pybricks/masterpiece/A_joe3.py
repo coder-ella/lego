@@ -1,7 +1,7 @@
 from pybricks.hubs import InventorHub
 from pybricks.pupdevices import Motor, ColorSensor, UltrasonicSensor, ForceSensor
 from pybricks.parameters import Button, Color, Direction, Port, Side, Stop
-from pybricks.robotics import DriveBase, GyroDriveBase
+from pybricks.robotics import DriveBase
 from pybricks.tools import wait, StopWatch
 
 """
@@ -19,6 +19,8 @@ def Everett_Grace_Function(hub, bob, moyrorL):
 
     #Clear terminal
     print("\x1b[H\x1b[2J", end="")
+
+    bob.use_gyro(True)
     
     print("Lunching")
     #example
@@ -77,11 +79,10 @@ def Everett_Grace_Function(hub, bob, moyrorL):
     bob.straight(-80)
 
 
-
-
-
     #print("\x1b[H\x1b[2J", end="")
-    #print("Lunch Complete")
+    print("Lunch Complete")
+
+    bob.use_gyro(False)
 
 if __name__ == '__main__':
     print("Preparing to Lunch")
@@ -90,6 +91,7 @@ if __name__ == '__main__':
     motor_right = Motor(Port.D,Direction.CLOCKWISE)
     moyrorL = Motor(Port.A)
     #try GyroDriveBase
-    bob = DriveBase(left_motor = motor_left, right_motor=motor_right, wheel_diameter = 55.6, axle_track = 83.79999999699997)
+    bob = DriveBase(left_motor = motor_left, right_motor=motor_right, 
+    wheel_diameter = 55.6, axle_track = 83.79999999699997)
     bob.settings(turn_acceleration=450)
     Everett_Grace_Function(hub, bob, moyrorL)
