@@ -7,6 +7,7 @@ from pybricks.robotics import DriveBase
 from A_fn_diagnostics import run_diagnostics
 from A_joe3 import Everett_Grace_Function
 from A_Light_Show_Mission_Current import *
+from A_clean_wheels import *
 
 hub = InventorHub()
 motor_left = Motor(Port.C, Direction.COUNTERCLOCKWISE)
@@ -18,7 +19,7 @@ motor_attach_right = Motor(Port.B)
 bob = DriveBase(left_motor = motor_left, right_motor=motor_right,
 wheel_diameter = 55.6, axle_track = 83.79999999699997)
 
-menu_options = ("1", "2", "D", "X") #forward, left, right, back, exit
+menu_options = ("1", "2", "D", "C", "X") #forward, left, right, back, exit
 menu_index = 0
 num_options = len(menu_options)
 
@@ -79,6 +80,8 @@ while True:
     elif selected == "D":
         print(f"bob's settings are{bob.settings()}")
         run_diagnostics(hub)
+    elif selected == "C":
+        clean(hub, bob)
     else:
         print("done!")
         # this is the only way to stop PyBricks
