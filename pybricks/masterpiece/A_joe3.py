@@ -1,11 +1,11 @@
 from pybricks.hubs import InventorHub
 from pybricks.pupdevices import Motor, ColorSensor, UltrasonicSensor, ForceSensor
 from pybricks.parameters import Button, Color, Direction, Port, Side, Stop
-from pybricks.robotics import DriveBase
+from pybricks.robotics import DriveBase, GyroDriveBase
 from pybricks.tools import wait, StopWatch
 
 """
-Robot: Not Bob
+Robot: Joe
 Home: Left side of board
 Attachments: Front fork + original mantis arm
 """
@@ -20,7 +20,7 @@ def Everett_Grace_Function(hub, bob, moyrorL):
     #Clear terminal
     print("\x1b[H\x1b[2J", end="")
 
-    bob.use_gyro(True)
+    #bob.use_gyro(True)
     
     print("Lunching")
     #example
@@ -29,13 +29,15 @@ def Everett_Grace_Function(hub, bob, moyrorL):
     # bob settings (st.speed 207, st.accl 720, turn.accl 238, turn rate 450)
     bob.settings(straight_acceleration=250, turn_acceleration=100,turn_rate=200)
     hub.light.on(Color.GREEN)
-    # square up against wall
+
+
+    print("square up against wall")
     bob.straight(10)
     bob.straight(-20)
     
-    #step 1 drive towards light tower
-    bob.straight(40)
-    bob.turn(65.2569)
+    print("step 1 drive towards light tower")
+    bob.straight(50)
+    bob.turn(38)
     wait(10)
 
     #drive to museum
@@ -46,30 +48,35 @@ def Everett_Grace_Function(hub, bob, moyrorL):
     wait(10)
     # Back up
     bob.straight(-290)
-    wait(100)
-    Stop
-    bob.turn(-35)
+    wait(10)
+    bob.turn(-30)
     bob.stop()
     wait(500)
-    bob.straight(50)
+    #bob.straight(50)
     
     #drive to vr
-    bob.straight(90)
+    bob.straight(190)
+    bob.straight(-40)
     wait(10)
     moyrorL.run_angle(1300,-1150)
     print(moyrorL.control.limits())
 
     #back up from vr
-    bob.straight(-75)
+    bob.straight(-55)
 
     #turn towards mission 2
-    moyrorL.run_angle(600,20.5)
-    bob.stop
-    bob.turn(-65)
-    bob.straight(370)
+    bob.stop()
+    print("Lifting attachment")
+    hub.speaker.beep()
+    moyrorL.run_angle(600, 20)
+    bob.stop()
+    bob.turn(-86)
+    bob.straight(340)
+    bob.turn(20)
+    hub.speaker.beep()
 
-    #bob do misson 2 sucsessfully
-    bob.straight(80)
+    #bob do misson 2 successfully
+    bob.straight(110)
     bob.straight(-80)
     bob.straight(80)
     bob.straight(-80)
@@ -77,12 +84,14 @@ def Everett_Grace_Function(hub, bob, moyrorL):
     bob.straight(-80)
     bob.straight(80)
     bob.straight(-80)
+
+    print("Ready to send home")
 
 
     #print("\x1b[H\x1b[2J", end="")
     print("Lunch Complete")
 
-    bob.use_gyro(False)
+    #bob.use_gyro(False)
 
 if __name__ == '__main__':
     print("Preparing to Lunch")
@@ -91,7 +100,7 @@ if __name__ == '__main__':
     motor_right = Motor(Port.D,Direction.CLOCKWISE)
     moyrorL = Motor(Port.A)
     #try GyroDriveBase
-    bob = DriveBase(left_motor = motor_left, right_motor=motor_right, 
+    bob = GyroDriveBase(left_motor = motor_left, right_motor=motor_right, 
     wheel_diameter = 55.6, axle_track = 83.79999999699997)
     bob.settings(turn_acceleration=450)
     Everett_Grace_Function(hub, bob, moyrorL)

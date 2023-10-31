@@ -24,7 +24,7 @@ def light_show_run(hub, bob, moyrorR):
     bob.use_gyro(True)
     #Clear terminal
     print("\x1b[H\x1b[2J", end="")
-   
+    
     print("...")
     bob.settings(straight_acceleration= 300, turn_acceleration= 200)
     hub.light.on(Color.GREEN)
@@ -54,7 +54,7 @@ def light_show_run(hub, bob, moyrorR):
     bob.straight(525)
     print("Augmented Fakeality Mission")
     
-    bob.turn(100)
+    bob.turn(105)
     bob.straight(35)
     bob.settings(straight_speed=900)
     
@@ -69,32 +69,41 @@ def light_show_run(hub, bob, moyrorR):
     bob.turn(90)
     moyrorR.run_angle(-700, 500)
     bob.straight(-180)
-    bob.turn(92)
+    bob.turn(90)
 
     print("start light show mission")
     bob.straight(-500)
-
     
-    moyrorR.run_angle(900,570)
-
-    print("do light show mission")
+    moyrorR.run_angle(-900,20)
+    print("Arm Down")
+    moyrorR.run_angle(900,540)
+    print("Ram light show mission")
     bob.settings(straight_speed=150)
     bob.straight(600)
-    bob.straight(-30)
-    moyrorR.run_angle(-4005, 400)
+    print("Back up and lift")
+
+    bob.straight(-42.5)
+    print("Light Show Up")
+    moyrorR.run_angle(-4005, 500)
     
+    print("Turn towards camera mission")
+
     bob.settings(straight_speed=300)
     bob.straight(-400)
+    
+    print("Grab Camera")
     
     moyrorR.run_time(-1000, 800)
     bob.straight(100)
     bob.turn(19)
-    bob.straight(699.6)
+    bob.straight(698)
+    print("Turn")
+    bob.turn(-20)
     moyrorR.run_angle(9900, 700)
     bob.turn(70)
     moyrorR.run_angle(2982, -700)
     bob.turn(20)
-    bob.straight(1000)
+    bob.straight(500)
     bob.turn(-60)
     bob.straight(1000)
 
@@ -104,7 +113,7 @@ def light_show_run(hub, bob, moyrorR):
     hub.display.icon(Icon.HAPPY)
     wait(200)
     bob.use_gyro(False)
-
+    
 
 # this code allows you to run this code directly without using
 # the menu system
