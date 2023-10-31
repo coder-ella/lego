@@ -30,7 +30,7 @@ def Everett_Grace_Function(hub, bob, moyrorL):
     bob.settings(straight_acceleration=250, turn_acceleration=100,turn_rate=200)
     hub.light.on(Color.GREEN)
 
-    '''
+    
     print("square up against wall")
     bob.straight(10)
     bob.straight(-20)
@@ -40,7 +40,7 @@ def Everett_Grace_Function(hub, bob, moyrorL):
     bob.turn(38)
     wait(10)
 
-    #drive to museum
+    print("drive to museum")
     bob.straight(1000)
     wait(10)
     
@@ -61,37 +61,50 @@ def Everett_Grace_Function(hub, bob, moyrorL):
     moyrorL.run_angle(1300,-1150)
     print(moyrorL.control.limits())
 
-    #back up from vr
+    print("back of from VR")
     bob.straight(-55)
-
-    #turn towards mission 2
     bob.stop()
+  
+
     print("Lifting attachment")
     moyrorL.run_angle(600, 20)
+
+    print("turn towards Sam")
     bob.stop()
-    hub.speaker.beep()
-    bob.turn(-80)
+    bob.straight(-65)
+    bob.turn(-65)
+    wait(10)
+    moyrorL.run_angle(600, -150)
+
+    print("go towards Sam")
+    bob.straight(430)
+    moyrorL.run_angle(600, 360)
+
+
+
+    #bad code :(
+    '''bob.turn(-80)
     bob.straight(400)
     moyrorL.run_angle(900, 180)
     bob.turn(10)
     moyrorL.run_angle(700, 7)
     hub.speaker.beep(100)
-    '''
+    
     #bob do misson 2 successfully
     bob.settings(straight_speed=500)
     moyrorL.run_angle(900, -360)
     moyrorL.run_angle(900, 360)
     moyrorL.run_angle(900, -360)
-    '''
+    
     bob.straight(130)
     bob.straight(-80)
     bob.straight(100)
     bob.straight(-80)
     bob.straight(100)
     bob.straight(-80)
-    '''
+    
     bob.settings(straight_speed = 194)
-    '''bob.straight(80)
+    bob.straight(80)
     bob.straight(-80)'''
 
     print("Ready to send home")
