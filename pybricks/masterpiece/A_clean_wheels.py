@@ -5,7 +5,11 @@ from pybricks.robotics import DriveBase
 from pybricks.tools import wait, StopWatch
 
 # https://docs.pybricks.com/en/latest/robotics.html
-
+'''
+# default settings
+bob.settings(straight_speed=194, straight_acceleration=727
+    ,turn_rate=221, turn_acceleration=995)
+'''
 def clean(hub, bob):
     wait(200)
     bob.straight(700)
