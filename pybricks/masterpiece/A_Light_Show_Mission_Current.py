@@ -21,6 +21,7 @@ def light_show_run(hub, bob, moyrorR):
         bob: the drive base
         moyrorR: The right attachment motor
     """
+    ratio = 1.8
     bob.use_gyro(True)
     #Clear terminal
     print("\x1b[H\x1b[2J", end="")
@@ -58,7 +59,7 @@ def light_show_run(hub, bob, moyrorR):
     bob.straight(35)
     bob.settings(straight_speed=900)
     
-    moyrorR.run_angle(1001, 600)
+    moyrorR.run_angle(1001, 600*ratio)
     
     bob.settings(straight_speed=600)
     bob.straight(-50)
@@ -67,16 +68,16 @@ def light_show_run(hub, bob, moyrorR):
     print("gotp Light Show Mission")
 
     bob.turn(90)
-    moyrorR.run_angle(-700, 500)
+    moyrorR.run_angle(-700, 500*ratio)
     bob.straight(-180)
     bob.turn(90)
 
     print("start light show mission")
     bob.straight(-500)
     
-    moyrorR.run_angle(-900,20)
+    moyrorR.run_angle(-900,20*ratio)
     print("Arm Down")
-    moyrorR.run_angle(900,540)
+    moyrorR.run_angle(900,540*ratio)
     print("Ram light show mission")
     bob.settings(straight_speed=150)
     bob.straight(600)
@@ -84,7 +85,7 @@ def light_show_run(hub, bob, moyrorR):
 
     bob.straight(-42.5)
     print("Light Show Up")
-    moyrorR.run_angle(-4005, 500)
+    moyrorR.run_angle(-4005, 500*ratio)
     
     print("Turn towards camera mission")
 
@@ -93,15 +94,15 @@ def light_show_run(hub, bob, moyrorR):
     
     print("Grab Camera")
     
-    moyrorR.run_time(-1000, 800)
+    moyrorR.run_time(-1000, 800*ratio)
     bob.straight(100)
     bob.turn(19)
     bob.straight(698)
     print("Turn")
     bob.turn(-20)
-    moyrorR.run_angle(9900, 700)
+    moyrorR.run_angle(9900, 675*ratio)
     bob.turn(70)
-    moyrorR.run_angle(2982, -700)
+    moyrorR.run_angle(2982, -700*ratio)
     bob.turn(20)
     bob.straight(500)
     bob.turn(-60)
