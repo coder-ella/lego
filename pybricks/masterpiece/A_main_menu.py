@@ -73,6 +73,11 @@ def do_menu(hub):
     
     return selected
 
+'''
+# highs 
+straight_speed=485, straight_acceleration=9704
+turn_rate=663, turn_acceleration=13271) 
+'''
 selected = ""
 while True:
     # Based on the selection, choose a program.
