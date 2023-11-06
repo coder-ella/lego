@@ -5,9 +5,11 @@ from pybricks.pupdevices import Motor, ColorSensor, UltrasonicSensor
 from pybricks.robotics import DriveBase
 
 from A_fn_diagnostics import run_diagnostics
-from A_joe3 import Everett_Grace_Function
+from A_joe import Everett_Grace_Function
 from A_Light_Show_Mission_Current import *
 from A_clean_wheels import *
+from A_dragon_joe import *
+from A_stage import *
 
 hub = InventorHub()
 motor_left = Motor(Port.C, Direction.COUNTERCLOCKWISE)
@@ -19,7 +21,7 @@ motor_attach_right = Motor(Port.B)
 bob = DriveBase(left_motor = motor_left, right_motor=motor_right,
 wheel_diameter = 55.6, axle_track = 83.79999999699997)
 
-menu_options = ("1", "2", "D", "C", "X") #forward, left, right, back, exit
+menu_options = ("1", "2", "3","4","5","6", "D", "C", "X") #forward, left, right, back, exit
 menu_index = 0
 num_options = len(menu_options)
 
@@ -75,13 +77,20 @@ while True:
     selected = do_menu(hub)
     if selected == "1":
         light_show_run(hub, bob, motor_attach_right)
-    elif selected == "2":
+    elif selected == "3":
         Everett_Grace_Function(hub, bob, motor_attach_left)
+    elif selected == "4":
+        dragon_run(hub, bob, motor_attach_left)
+    elif selected == "5":
+        run_theater(hub, bob, motor_attach_left,2)
+    elif selected == "6":
+        run_theater(hub, bob, motor_attach_left,3)
     elif selected == "D":
         print(f"bob's settings are{bob.settings()}")
         run_diagnostics(hub)
     elif selected == "C":
         clean(hub, bob)
+        
     else:
         print("done!")
         # this is the only way to stop PyBricks
