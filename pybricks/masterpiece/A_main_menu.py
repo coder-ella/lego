@@ -21,6 +21,7 @@ motor_attach_right = Motor(Port.B)
 #sensor_2 = ColorSensor(Port.E)
 bob = DriveBase(left_motor = motor_left, right_motor=motor_right,
 wheel_diameter = 55.6, axle_track = 83.79999999699997)
+default_setting = bob.settings()
 
 menu_options = ("1", "2", "3","4","5","6", "D", "C", "X") #forward, left, right, back, exit
 menu_index = 0
@@ -76,6 +77,8 @@ selected = ""
 while True:
     # Based on the selection, choose a program.
     selected = do_menu(hub)
+    bob.settings(default_settings[0],default_settings[1],
+    default_settings[2],default_settings[3])
     if selected == "1":
         longy(hub, bob, motor_attach_right)
     elif selected == "2":
