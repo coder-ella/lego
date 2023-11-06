@@ -6,7 +6,8 @@ from pybricks.robotics import DriveBase
 
 from A_fn_diagnostics import run_diagnostics
 from A_joe import Everett_Grace_Function
-from A_Light_Show_Mission_Current import *
+from A_Light_Show_Mission_V3 import *
+from A_Long_Poker_Thing import *
 from A_clean_wheels import *
 from A_dragon_joe import *
 from A_stage import *
@@ -76,6 +77,8 @@ while True:
     # Based on the selection, choose a program.
     selected = do_menu(hub)
     if selected == "1":
+        longy(hub, bob, motor_attach_right)
+    elif selected == "2":
         light_show_run(hub, bob, motor_attach_right)
     elif selected == "3":
         Everett_Grace_Function(hub, bob, motor_attach_left)
