@@ -73,6 +73,14 @@ def do_menu(hub):
     
     return selected
 
+if hub.imu.ready():
+    print("IMU is ready")
+    hub.display.icon(Icon.HEART)
+else:
+    print("IMU is NOT ready!")
+    hub.speaker.play_notes(["C3/4","D3/4","C2/2"])
+    hub.display.icon(Icon.FALSE)
+
 '''
 # highs 
 straight_speed=485, straight_acceleration=9704
