@@ -21,7 +21,7 @@ motor_attach_right = Motor(Port.B)
 #sensor_2 = ColorSensor(Port.E)
 bob = DriveBase(left_motor = motor_left, right_motor=motor_right,
 wheel_diameter = 55.6, axle_track = 83.79999999699997)
-default_setting = bob.settings()
+default_settings = bob.settings()
 
 menu_options = ("1", "2", "3","4","5","6", "D", "C", "X") #forward, left, right, back, exit
 menu_index = 0
@@ -87,7 +87,7 @@ while True:
     if selected == "1":
         longy(hub, bob, motor_attach_right)
     elif selected == "2":
-        light_show_run(hub, bob, motor_attach_right)
+        light_show_run(hub, bob, motor_attach_right, motor_attach_left)
     elif selected == "3":
         Everett_Grace_Function(hub, bob, motor_attach_left)
     elif selected == "4":
