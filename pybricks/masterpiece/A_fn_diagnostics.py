@@ -24,8 +24,10 @@ def run_diagnostics(hub):
     #Determine battery percentage
     if voltage >= VMAX:
         print("battery is at 100%")
+        battery = 100
     elif voltage <= VMIN:
         print("battery is at 1% or less")
+        battery = 0
     else:
         battery = (voltage-VMIN)*100/(VMAX - VMIN)
         battery = round(battery)
@@ -71,9 +73,19 @@ def run_diagnostics(hub):
         hub.display.icon(Icon.SAD)
         hub.light.on(Color.RED)
 
+    print(f"IMU Ready: {hub.imu.ready()}")
+    if hub.imu.ready():
+        hub.display.icon(Icon.HEART)
+        hub.speaker.play_notes(["C3/4","D3/4","C4/2"])
+    else:
+        hub.speaker.play_notes(["C3/4","D3/4","C2/2"])
+        hub.display.icon(Icon.FALSE)
+
     #wait 4 sec in order to show icon before stopping code
     wait(1000)
     hub.light.on(Color.BLUE)
+
+    
 
 if __name__ == '__main__':
     print("testing")
