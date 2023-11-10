@@ -11,6 +11,7 @@ from A_Long_Poker_Thing import *
 from A_clean_wheels import *
 from A_dragon_joe import *
 from A_stage import *
+from A_daddy_dropoff import *
 
 hub = InventorHub()
 motor_left = Motor(Port.C, Direction.COUNTERCLOCKWISE)
@@ -23,7 +24,7 @@ bob = DriveBase(left_motor = motor_left, right_motor=motor_right,
 wheel_diameter = 55.6, axle_track = 83.79999999699997)
 default_settings = bob.settings()
 
-menu_options = ("1", "2", "3","4","5","6", "D", "C", "X") #forward, left, right, back, exit
+menu_options = ("1", "2", "3","4","5","6", "7", "D", "C") #forward, left, right, back, exit
 menu_index = 0
 num_options = len(menu_options)
 
@@ -101,9 +102,11 @@ while True:
     elif selected == "4":
         dragon_run(hub, bob, motor_attach_left)
     elif selected == "5":
-        run_theater(hub, bob, motor_attach_left,2)
+        run_theater(hub, bob, motor_attach_left,1)
     elif selected == "6":
         run_theater(hub, bob, motor_attach_left,3)
+    elif selected == "7":
+        Daddy_Dropoff(hub, bob, motor_attach_left)
     elif selected == "D":
         print(f"bob's settings are{bob.settings()}")
         run_diagnostics(hub)

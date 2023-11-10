@@ -21,6 +21,7 @@ def light_show_run(hub, bob, moyrorR, moyrorL):
         bob: the drive base
         moyrorR: The right attachment motor
     """
+    print("11-7-2023")
     ratio = 1.8
     bob.use_gyro(True)
     #Clear terminal
@@ -71,29 +72,17 @@ def light_show_run(hub, bob, moyrorR, moyrorL):
     moyrorR.run_angle(-1000, 700*ratio)
     bob.straight(-180)
     bob.turn(90)
-    bob.straight(80)
+    bob.straight(75)
     print("Do light show mission")
-    moyrorL.run_angle(10000, 3400)
-    bob.straight(-500)
+    moyrorL.run_angle(1000, 3390)
+    bob.straight(-100)
     #bob.settings(straight_speed=60)
     #bob.straight(100)
     hub.speaker.beep()
     print("Turn towards camera mission") 
         
-    print("Grab Camera")
-    
-    bob.straight(100)
-    bob.turn(21)
-    bob.straight(705)
-    print("Turn")
-    bob.turn(-20)
-    bob.straight(40)
-    moyrorR.run_angle(9900, 675*ratio)
-    bob.turn(70)
-    moyrorR.run_angle(2982, -700*ratio)
-    bob.turn(20)
-    bob.straight(500)
-    bob.turn(-60)
+    print("Dont Grab Camera")
+    bob.turn(38)
     bob.straight(1000)
 
 
