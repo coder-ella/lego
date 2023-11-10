@@ -48,6 +48,10 @@ def do_menu(hub):
         # and then wait for the button to be released.
         while hub.buttons.pressed():
             wait(10)
+
+        if Button.BLUETOOTH in pressed:
+            # This is the exit key!
+            return "X"
   
         # Now check which button was pressed.
         if Button.CENTER in pressed:
@@ -89,32 +93,42 @@ turn_rate=663, turn_acceleration=13271)
 '''
 selected = ""
 while True:
-    # Based on the selection, choose a program.
-    selected = do_menu(hub)
-    bob.settings(default_settings[0],default_settings[1],
-    default_settings[2],default_settings[3])
-    if selected == "1":
-        longy(hub, bob, motor_attach_right)
-    elif selected == "2":
-        light_show_run(hub, bob, motor_attach_right, motor_attach_left)
-    elif selected == "3":
-        Everett_Grace_Function(hub, bob, motor_attach_left)
-    elif selected == "4":
-        dragon_run(hub, bob, motor_attach_left)
-    elif selected == "5":
-        run_theater(hub, bob, motor_attach_left,1)
-    elif selected == "6":
-        run_theater(hub, bob, motor_attach_left,3)
-    elif selected == "7":
-        Daddy_Dropoff(hub, bob, motor_attach_left)
-    elif selected == "D":
-        print(f"bob's settings are{bob.settings()}")
-        run_diagnostics(hub)
-    elif selected == "C":
-        clean(hub, bob)
-        
-    else:
-        print("done!")
-        # this is the only way to stop PyBricks
-        raise SystemExit("Closing program..")
+    try:
+        # Based on the selection, choose a program.
+        selected = do_menu(hub)
+        bob.settings(default_settings[0],default_settings[1],
+        default_settings[2],default_settings[3])
+        if selected == "1":
+            longy(hub, bob, motor_attach_right)
+        elif selected == "2":
+            light_show_run(hub, bob, motor_attach_right, motor_attach_left)
+        elif selected == "3":
+            Everett_Grace_Function(hub, bob, motor_attach_left)
+        elif selected == "4":
+            dragon_run(hub, bob, motor_attach_left)
+        elif selected == "5":
+            run_theater(hub, bob, motor_attach_left,1)
+        elif selected == "6":
+            run_theater(hub, bob, motor_attach_left,3)
+        elif selected == "7":
+            Daddy_Dropoff(hub, bob, motor_attach_left)
+        elif selected == "D":
+            print(f"bob's settings are{bob.settings()}")
+            run_diagnostics(hub)
+        elif selected == "C":
+            clean(hub, bob)
+        else:
+            print(f"dont know selected value {selected}")
+            selected = "X"
+            # this is the only way to stop PyBricks
+            raise SystemExit("Closing program..")
+    except SystemExit:
+        if selected == "X":
+            raise SystemExit()
+        bob.stop()
+        motor_left.stop()
+        motor_right.stop()
+        while hub.buttons.pressed():
+            wait(100) # wait for button to be released
+
     bob.stop()
