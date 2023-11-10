@@ -1,134 +1,111 @@
 from pybricks.hubs import InventorHub
-from pybricks.parameters import Button, Color, Direction, Port, Side, Stop, Icon
-from pybricks.tools import wait, StopWatch
-from pybricks.pupdevices import Motor, ColorSensor, UltrasonicSensor
+from pybricks.pupdevices import Motor, ColorSensor, UltrasonicSensor, ForceSensor
+from pybricks.parameters import Button, Color, Direction, Port, Side, Stop, Icon       
 from pybricks.robotics import DriveBase
+from pybricks.tools import wait, StopWatch
 
-from A_fn_diagnostics import run_diagnostics
-from A_joe import *
-from A_Light_Show_Mission_V3 import *
-from A_Long_Poker_Thing import *
-from A_clean_wheels import *
-from A_dragon_joe import *
-from A_stage import *
-from A_daddy_dropoff import *
+# https://docs.pybricks.com/en/latest/robotics.html
 
-hub = InventorHub()
-motor_left = Motor(Port.C, Direction.COUNTERCLOCKWISE)
-motor_right = Motor(Port.D,Direction.CLOCKWISE)
-motor_attach_left = Motor(Port.A)
-motor_attach_right = Motor(Port.B)
-#sensor = ColorSensor(Port.F)
-#sensor_2 = ColorSensor(Port.E)
-bob = DriveBase(left_motor = motor_left, right_motor=motor_right,
-wheel_diameter = 55.6, axle_track = 83.79999999699997)
-default_settings = bob.settings()
+#CHANGES TO MAKE
+# - Move less toward augmented reality
+# - Perfect turn to get to setup for light show
+# - 
 
-menu_options = ("1", "2", "3","4","5","6", "7", "D", "C") #forward, left, right, back, exit
-menu_index = 0
-num_options = len(menu_options)
+def light_show_run(hub, bob, moyrorR, moyrorL):
+    """
+    function for run 1
 
-# Clear terminal
-print("\x1b[H\x1b[2J", end="")
-
-def do_menu(hub):
-    # menu_index is global, so that it can remember what the last menu-index was
-    global menu_index
-    # Normally, the center button stops the program. But we want to use the
-    # center button for our menu. So we can disable the stop button.
-    hub.system.set_stop_button(None)
-    while True:
-        hub.display.char(menu_options[menu_index])
-        # Wait for any button.
-        pressed = ()
-        while not pressed:
-            pressed = hub.buttons.pressed()
-            wait(10)    
-        print(f"pressed: {pressed}")
-        # and then wait for the button to be released.
-        while hub.buttons.pressed():
-            wait(10)
-
-        if Button.BLUETOOTH in pressed:
-            # This is the exit key!
-            return "X"
-  
-        # Now check which button was pressed.
-        if Button.CENTER in pressed:
-            # Center button, this is the selection button, so we can exit the
-            # selection loop
-            print(f"Selected Index: {menu_index}")
-            break
-        elif Button.LEFT in pressed:
-            # Left button, so decrement menu menu_index.
-            menu_index -= 1
-            if (menu_index < 0): #roll over!
-                menu_index = num_options - 1
-        elif Button.RIGHT in pressed:
-            # Right button, so increment menu menu_index.
-            menu_index += 1
-            if (menu_index >= num_options):
-                menu_index = 0
-        print(f"menu_index:{menu_index}")
     
-    # Now we want to use the Center button as the stop button again.
-    hub.system.set_stop_button(Button.CENTER)
-    selected = menu_options[menu_index]
-    print(f"menu option selected {selected}")
+    Arguments:
+        hub: the hub
+        bob: the drive base
+        moyrorR: The right attachment motor
+    """
+    print("11-7-2023")
+    ratio = 1.8
+    bob.use_gyro(True)
+    #Clear terminal
+    print("\x1b[H\x1b[2J", end="")
     
-    return selected
+    print("...")
+    bob.settings(straight_acceleration= 300, turn_acceleration= 200)
+    hub.light.on(Color.GREEN)
+    print("Wallsquare")
+    bob.straight(-50)
+    print("Go toward printer")
+    bob.straight(330)
+    print("Turn toward printer")
+    bob.turn(-45)
+    print("Ram printer")
+    bob.straight(200)
+    print("Back away from printer")
+    bob.straight(-100)
+    print("Turns to go forward")
+    bob.turn(40)
+    print("Forward toward hologram mission")
+    bob.straight(325)
+    print("Turn toward hologram mission")
+    bob.turn(-130)
+    print("Ram hologram mission")
+    bob.straight(-350)
+    print("Back away from hologram mission")
+    bob.straight(50)
+    print("Turn to go towards light show mission")
+    bob.turn(35)
+    print("Go towards light show mission")
+    bob.straight(525)
+    print("Augmented Fakeality Mission")
+    
+    bob.turn(105)
+    bob.straight(60)
+    bob.settings(straight_speed=900)
+    
+    moyrorR.run_angle(1001, 650*ratio)
+    
+    bob.settings(straight_speed=600)
+    bob.straight(-60)
+    bob.settings(straight_speed=300)
+    
+    print("go to Light Show Mission")
 
-if hub.imu.ready():
-    print("IMU is ready")
-    hub.display.icon(Icon.HEART)
-else:
-    print("IMU is NOT ready!")
-    hub.speaker.play_notes(["C3/4","D3/4","C2/2"])
-    hub.display.icon(Icon.FALSE)
+    bob.turn(90)
+    moyrorR.run_angle(-1000, 700*ratio)
+    bob.straight(-180)
+    bob.turn(90)
+    bob.straight(75)
+    print("Do light show mission")
+    moyrorL.run_angle(1000, 3390)
+    bob.straight(-100)
+    #bob.settings(straight_speed=60)
+    #bob.straight(100)
+    hub.speaker.beep()
+    print("Turn towards camera mission") 
+        
+    print("Dont Grab Camera")
+    bob.turn(38)
+    bob.straight(1000)
 
-'''
-# highs 
-straight_speed=485, straight_acceleration=9704
-turn_rate=663, turn_acceleration=13271) 
-'''
-selected = ""
-while True:
-    try:
-        # Based on the selection, choose a program.
-        selected = do_menu(hub)
-        bob.settings(default_settings[0],default_settings[1],
-        default_settings[2],default_settings[3])
-        if selected == "1":
-            longy(hub, bob, motor_attach_right)
-        elif selected == "2":
-            light_show_run(hub, bob, motor_attach_right, motor_attach_left)
-        elif selected == "3":
-            Everett_Grace_Function(hub, bob, motor_attach_left)
-        elif selected == "4":
-            dragon_run(hub, bob, motor_attach_left)
-        elif selected == "5":
-            run_theater(hub, bob, motor_attach_left,1)
-        elif selected == "6":
-            run_theater(hub, bob, motor_attach_left,3)
-        elif selected == "7":
-            Daddy_Dropoff(hub, bob, motor_attach_left)
-        elif selected == "D":
-            print(f"bob's settings are{bob.settings()}")
-            run_diagnostics(hub)
-        elif selected == "C":
-            clean(hub, bob)
-        else:
-            print(f"dont know selected value {selected}")
-            selected = "X"
-            # this is the only way to stop PyBricks
-            raise SystemExit("Closing program..")
-    except SystemExit:
-        if selected == "X":
-            raise SystemExit()
-        bob.stop()
-        motor_left.stop()
-        motor_right.stop()
-        while hub.buttons.pressed():
-            wait(100) # wait for button to be released
 
-    bob.stop()
+    print("done")
+    hub.speaker.play_notes(["C4/4", "C4/4", "G4/4", "G4/4"])
+    hub.display.icon(Icon.HAPPY)
+    wait(200)
+    bob.use_gyro(False)
+    
+
+# this code allows you to run this code directly without using
+# the menu system
+if __name__ == '__main__':
+    print("testing")
+    hub = InventorHub()
+    motor_left = Motor(Port.C, Direction.COUNTERCLOCKWISE)
+    motor_right = Motor(Port.D,Direction.CLOCKWISE)
+    moyrorR = Motor(Port.B)
+    moyrorL = Motor(Port.A)
+    bob = DriveBase(left_motor = motor_left, right_motor=motor_right,
+    wheel_diameter = 55.6, axle_track = 83.79999999699997)
+
+    # call your function.
+    # remember to rename the below name to match
+    # your function name on line 11
+    light_show_run(hub, bob, moyrorR,motor_left)
