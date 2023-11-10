@@ -108,4 +108,4 @@ if __name__ == '__main__':
     # call your function.
     # remember to rename the below name to match
     # your function name on line 11
-    light_show_run(hub, bob, moyrorR)
+    light_show_run(hub, bob, moyrorR,motor_left)
