@@ -33,7 +33,7 @@ def longy(hub, bob, moyrorL):
     hub.light.on(Color.GREEN)
     
 
-    bob.settings(75)
+    bob.settings(55)
     bob.straight(380)
     bob.settings(970, turn_acceleration=150)
     bob.straight(-210)

@@ -10,7 +10,7 @@ from A_Light_Show_Mission_V3 import *
 from A_Long_Poker_Thing import *
 from A_clean_wheels import *
 from A_dragon_joe import *
-from A_stage import *
+from A_stizzy import *
 from A_daddy_dropoff import *
 
 hub = InventorHub()
@@ -107,7 +107,7 @@ while True:
         elif selected == "4":
             dragon_run(hub, bob, motor_attach_left)
         elif selected == "5":
-            run_theater(hub, bob, motor_attach_left,1)
+            run_theater(hub, bob, motor_attach_left,2)
         elif selected == "6":
             run_theater(hub, bob, motor_attach_left,3)
         elif selected == "7":
@@ -118,7 +118,7 @@ while True:
         elif selected == "C":
             clean(hub, bob)
         else:
-            print(f"dont know selected value {selected}")
+            print(f"don't know selected value {selected}")
             selected = "X"
             # this is the only way to stop PyBricks
             raise SystemExit("Closing program..")
@@ -128,6 +128,7 @@ while True:
         bob.stop()
         motor_left.stop()
         motor_right.stop()
+        hub.speaker.beep(frequency=1, duration = 50)
         while hub.buttons.pressed():
             wait(100) # wait for button to be released
 

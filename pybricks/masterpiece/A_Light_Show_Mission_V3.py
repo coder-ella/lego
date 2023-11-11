@@ -69,7 +69,7 @@ def light_show_run(hub, bob, moyrorR, moyrorL):
     print("go to Light Show Mission")
 
     bob.turn(90)
-    moyrorR.run_angle(-1000, 700*ratio)
+    moyrorR.run_angle(-1000, 700*ratio, wait=False)
     bob.straight(-180)
     bob.turn(90)
     bob.straight(75)
@@ -87,8 +87,8 @@ def light_show_run(hub, bob, moyrorR, moyrorL):
 
 
     print("done")
-    hub.speaker.play_notes(["C4/4", "C4/4", "G4/4", "G4/4"])
-    hub.display.icon(Icon.HAPPY)
+    #hub.speaker.play_notes(["C4/4", "C4/4", "G4/4", "G4/4"])
+    #hub.display.icon(Icon.HAPPY)
     wait(200)
     bob.use_gyro(False)
     
