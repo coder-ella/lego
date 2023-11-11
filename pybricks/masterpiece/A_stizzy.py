@@ -75,5 +75,4 @@ if __name__ == '__main__':
     #try GyroDriveBase
     bob = DriveBase(left_motor = motor_left, right_motor=motor_right, 
     wheel_diameter = 55.6, axle_track = 83.79999999699997)
-    bob.settings(turn_acceleration=450)
     run_theater(hub, bob, moyrorL,2)
