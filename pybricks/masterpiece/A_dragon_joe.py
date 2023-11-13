@@ -32,7 +32,8 @@ def dragon_run(hub, bob, moyrorL):
 
     moyrorL.run_angle(600,20)
 
-    bob.straight(300)
+    # Was 300
+    bob.straight(307)
 
     bob.turn(-25)
 

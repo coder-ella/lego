@@ -70,9 +70,9 @@ def light_show_run(hub, bob, moyrorR, moyrorL):
 
     bob.turn(90)
     moyrorR.run_angle(-1000, 700*ratio, wait=False)
-    bob.straight(-180)
+    bob.straight(-195)
     bob.turn(90)
-    bob.straight(75)
+    bob.straight(90)
     print("Do light show mission")
     moyrorL.run_angle(1000, 3390)
     bob.straight(-100)

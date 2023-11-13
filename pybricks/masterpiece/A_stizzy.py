@@ -49,7 +49,7 @@ def run_theater(hub, bob, moyrorL,count):
     bob.straight(-60)
     for bump in range(1,count):
 
-        bob.straight(80 +(bump*10))
+        bob.straight(86 +(bump*10))
         hub.speaker.beep()
         wait(100)
         bob.straight(-70 -(bump*10))
