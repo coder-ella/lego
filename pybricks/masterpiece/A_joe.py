@@ -32,6 +32,7 @@ def Everett_Grace_Function(hub, bob, moyrorL):
 
     
     print("square up against wall")
+    bob.settings(straight_acceleration=600, straight_speed=600)
     bob.straight(10)
     bob.straight(-20)
     
@@ -42,7 +43,6 @@ def Everett_Grace_Function(hub, bob, moyrorL):
 
     print("drive to museum")
     bob.straight(1000)
-    wait(10)
     
    
     wait(10)
@@ -50,8 +50,6 @@ def Everett_Grace_Function(hub, bob, moyrorL):
     bob.straight(-290)
     wait(10)
     bob.turn(-30)
-    bob.stop()
-    wait(500)
     
     print("drive to vr")
     bob.straight(190)
@@ -65,13 +63,11 @@ def Everett_Grace_Function(hub, bob, moyrorL):
     hub.speaker.beep()
 
     print("back of from VR")
-    bob.settings(straight_speed=900, straight_acceleration=500)
-    bob.straight(-500)
-    bob.turn(75)
-    bob.straight(-800)
-    bob.stop()
+    bob.settings(straight_speed=970, straight_acceleration=9704
+    ,turn_rate=1327, turn_acceleration=13271)
+    bob.curve(-500, -119)
 
-    
+
 
     #print("\x1b[H\x1b[2J", end="")
     print("Lunch Complete")

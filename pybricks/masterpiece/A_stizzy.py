@@ -33,7 +33,7 @@ def run_theater(hub, bob, moyrorL,count):
     #take off trident holder thing
     #Izzy sideways
     bob.straight(-10)
-
+    bob.settings(straight_speed=190)
     print("get to stage")
     moyrorL.run_angle(900,-40)
     wait(100)
@@ -51,14 +51,14 @@ def run_theater(hub, bob, moyrorL,count):
 
         bob.straight(86 +(bump*10))
         hub.speaker.beep()
-        wait(100)
-        bob.straight(-70 -(bump*10))
+        wait(200)
+        bob.straight(-86 -(bump*10))
         
 
     print("go home")
     bob.settings(straight_speed=700)
-    bob.turn(80)
-    bob.straight(-150)
+    bob.turn(70)
+    bob.straight(-600)
 
 
     #print("\x1b[H\x1b[2J", end="")
@@ -75,4 +75,4 @@ if __name__ == '__main__':
     #try GyroDriveBase
     bob = DriveBase(left_motor = motor_left, right_motor=motor_right, 
     wheel_diameter = 55.6, axle_track = 83.79999999699997)
-    run_theater(hub, bob, moyrorL,2)
+    run_theater(hub, bob, moyrorL,1)

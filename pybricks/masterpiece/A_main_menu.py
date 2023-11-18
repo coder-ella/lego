@@ -6,7 +6,7 @@ from pybricks.robotics import DriveBase
 
 from A_fn_diagnostics import run_diagnostics
 from A_joe import *
-from A_Light_Show_Mission_V3 import *
+from A_Light_Show_Mission_V4 import *
 from A_Long_Poker_Thing import *
 from A_clean_wheels import *
 from A_dragon_joe import *
