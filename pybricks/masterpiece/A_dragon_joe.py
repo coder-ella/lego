@@ -26,23 +26,26 @@ def dragon_run(hub, bob, moyrorL):
     #example
     #bob.straight(200, then=Stop.COAST)
     print(f"bob settings {bob.settings()}")
-    # bob settings (st.speed 207, st.accl 720, turn.accl 238, turn rate 450)
+    #bob settings (st.speed 207, st.accl 10, turn.accl 238, turn rate 450)
     bob.settings(straight_speed=300)
     hub.light.on(Color.GREEN)
 
-    moyrorL.run_angle(600,20)
+    #moyrorL.run_angle(600,20)
 
     # Was 300
-    bob.straight(307)
+    bob.straight(330)
 
-    bob.turn(-25)
+    bob.turn(-40)
 
-    bob.straight(60)
+    bob.settings(turn_rate=1327, turn_acceleration=13271) 
+
+    bob.straight(75)
     
-    bob.turn(45)
+    bob.turn(50)
     
-    bob.straight(-600)
-    
+    bob.straight(-500)
+
+
 
 
     #print("\x1b[H\x1b[2J", end="")

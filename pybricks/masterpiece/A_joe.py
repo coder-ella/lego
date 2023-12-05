@@ -53,7 +53,7 @@ def Everett_Grace_Function(hub, bob, moyrorL):
     
     print("drive to vr")
     bob.straight(190)
-    bob.straight(-40)
+    bob.straight(-50)
     wait(10)
     moyrorL.run_angle(1300,-1150)
     print(moyrorL.control.limits())

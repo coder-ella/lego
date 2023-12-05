@@ -49,16 +49,16 @@ def run_theater(hub, bob, moyrorL,count):
     bob.straight(-60)
     for bump in range(1,count):
 
-        bob.straight(86 +(bump*10))
+        bob.straight(110 +(bump*10))
         hub.speaker.beep()
         wait(200)
-        bob.straight(-86 -(bump*10))
+        bob.straight(-50 -(bump*10))
         
 
-    print("go home")
+    print("go to popcorn")
     bob.settings(straight_speed=700)
-    bob.turn(70)
-    bob.straight(-600)
+    bob.turn(80)
+    bob.straight(-120)
 
 
     #print("\x1b[H\x1b[2J", end="")
@@ -75,4 +75,4 @@ if __name__ == '__main__':
     #try GyroDriveBase
     bob = DriveBase(left_motor = motor_left, right_motor=motor_right, 
     wheel_diameter = 55.6, axle_track = 83.79999999699997)
-    run_theater(hub, bob, moyrorL,1)
+    run_theater(hub, bob, moyrorL,2)

@@ -6,12 +6,13 @@ from pybricks.robotics import DriveBase
 
 from A_fn_diagnostics import run_diagnostics
 from A_joe import *
-from A_Light_Show_Mission_V4 import *
-from A_Long_Poker_Thing import *
+from A_Light_Show_Mission_V5 import *
+from A_Long_Poker_Thing_V2 import *
 from A_clean_wheels import *
 from A_dragon_joe import *
 from A_stizzy import *
 from A_daddy_dropoff import *
+from A_Camera import *
 
 hub = InventorHub()
 motor_left = Motor(Port.C, Direction.COUNTERCLOCKWISE)
@@ -107,11 +108,12 @@ while True:
         elif selected == "4":
             dragon_run(hub, bob, motor_attach_left)
         elif selected == "5":
-            run_theater(hub, bob, motor_attach_left,2)
+            camera_run(hub, bob, motor_attach_left)  
         elif selected == "6":
-            run_theater(hub, bob, motor_attach_left,3)
+            run_theater(hub, bob, motor_attach_left,2)
         elif selected == "7":
-            Daddy_Dropoff(hub, bob, motor_attach_left)
+            run_theater(hub, bob, motor_attach_left,3)
+             
         elif selected == "D":
             print(f"bob's settings are{bob.settings()}")
             run_diagnostics(hub)

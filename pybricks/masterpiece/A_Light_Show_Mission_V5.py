@@ -28,6 +28,7 @@ def light_show_run(hub, bob, moyrorR, moyrorL):
     print("\x1b[H\x1b[2J", end="")
     
     print("...")
+    bob.settings(970, 5000)
     moyrorR.run_angle(6969, -1000)
     bob.settings(straight_acceleration= 300, turn_acceleration= 200)
     hub.light.on(Color.GREEN)
@@ -61,23 +62,23 @@ def light_show_run(hub, bob, moyrorR, moyrorL):
     
     bob.turn(105)
     bob.straight(65)
-    bob.settings(straight_speed=900)
+    bob.settings(970, 4000)
     
     moyrorR.run_angle(1001, 650*ratio)
     
-    bob.settings(600)
-    bob.straight(-60)
+    bob.straight(-80)
     bob.settings(straight_speed=300)
     
-    print("go to Light Show Mission")
+    print("Go to Light Show Mission")
 
     bob.turn(90)
     moyrorR.run_angle(-1000, 700*ratio, wait=False)
-    bob.straight(-195)
+    bob.straight(-250)
     bob.turn(90)
-    bob.straight(90)
+    bob.straight(40)
     print("Do light show mission")
-    moyrorL.run_angle(1000, 3390)
+    moyrorL.run_angle(1000, 3750)
+    bob.settings(970, 5000)
     bob.straight(-100)
     #bob.settings(straight_speed=60)
     #bob.straight(100)
@@ -89,7 +90,7 @@ def light_show_run(hub, bob, moyrorR, moyrorL):
     bob.straight(1000)
 
 
-    print("done")
+    print("me done")
     #hub.speaker.play_notes(["C4/4", "C4/4", "G4/4", "G4/4"])
     #hub.display.icon(Icon.HAPPY)
     wait(200)
