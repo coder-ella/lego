@@ -40,12 +40,11 @@ def camera_run(hub, bob, moyrorL):
 
     bob.straight(-200)
 
-    moyrorL.run_angle(500, 75,)
-
-    moyrorL.run_angle(500, -75,)
+    moyrorL.run_angle(500, 100,)
 
     bob.straight(-500)
 
+    moyrorL.run_angle(500, -100,)
 
 
 

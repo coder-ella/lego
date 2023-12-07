@@ -6,6 +6,7 @@ from pybricks.tools import wait, StopWatch
 import pybricks
 from pybricks.parameters import Icon
 
+
 def run_diagnostics(hub):
     #Clear terminal and matrix
     print("\x1b[H\x1b[2J", end="")
@@ -20,7 +21,9 @@ def run_diagnostics(hub):
 
     #write version to terminal
     print(f"version is{pybricks.version}")
+    print(f"hub id is {hub.system.name()}")
     
+
     #Determine battery percentage
     if voltage >= VMAX:
         print("battery is at 100%")

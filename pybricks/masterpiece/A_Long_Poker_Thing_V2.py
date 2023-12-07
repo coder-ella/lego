@@ -43,7 +43,7 @@ def longy(hub, bob, moyrorR):
     bob.straight(70)
     bob.turn(15)
     bob.straight(100)
-    bob.turn(29)
+    bob.turn(27)
     bob.straight(125)
     bob.settings(turn_rate=50, turn_acceleration=50)
     bob.turn(120)
