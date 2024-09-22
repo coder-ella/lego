@@ -25,13 +25,15 @@ def settings_test():
     setting_names = ("straight_speed", "straight_acceleration","turn_rate","turn_acceleration")
 
     hub = InventorHub()
-    motor_left = Motor(Port.C, Direction.COUNTERCLOCKWISE)
-    motor_right = Motor(Port.D,Direction.CLOCKWISE)
+    motor_left = Motor(Port.B, Direction.COUNTERCLOCKWISE)
+    motor_right = Motor(Port.A,Direction.CLOCKWISE)
+    moyrorR = Motor(Port.F)
+    moyrorL = Motor(Port.E)
     drivebase = DriveBase(left_motor = motor_left, right_motor=motor_right,
     wheel_diameter = 55.6, axle_track = 83.8)
     
     default_settings = drivebase.settings()
-    print(default_settings)
+    print(f"default: {default_settings}")
     
     #settings found by testing different values until a ValueError: Invalid argument error was thrown
     drivebase.settings(straight_speed=970, straight_acceleration=9704,turn_rate=1327, turn_acceleration=13271)  
