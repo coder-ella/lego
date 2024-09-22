@@ -6,11 +6,6 @@ from pybricks.tools import wait, StopWatch
 
 # https://docs.pybricks.com/en/latest/robotics.html
 
-#CHANGES TO MAKE
-# - Move less toward augmented reality
-# - Perfect turn to get to setup for light show
-# - 
-
 def m_09(hub, bob, moyrorR, moyrorL):
     """
     function for run 1
@@ -21,7 +16,7 @@ def m_09(hub, bob, moyrorR, moyrorL):
         bob: the drive base
         moyrorR: The right attachment motor
     """
-    print("2024-09-1")
+    print("2024-09-3")
     bob.use_gyro(True)
     #Clear terminal
     print("\x1b[H\x1b[2J", end="")
@@ -61,19 +56,30 @@ def m_09(hub, bob, moyrorR, moyrorL):
     print("Mission 5 Complete")
     print("Initiating Mission 3")
     bob.turn(-12)
-    moyrorR.run_angle(500, -110)
+    moyrorR.run_angle(500, -100)
     bob.straight(-200)
     print("Mission 3 Completed")
     moyrorR.run_angle(500,120)
-    
+    print("Initiating to Mission 2")
+    bob.turn(-20)
+    bob.straight(535)#540
+    moyrorR.run_angle(500, -125) # put arm down
+    print("Mission 2 Completed")
+    moyrorR.run_angle(500, 120)
+    print("Initiating Mission 4")
+    bob.straight(-20)
+    bob.turn(-27)
+    wait(100)
+    bob.straight(80)
+    print("Initiating Mission 1")
+    moyrorR.run_angle(500,105)
+    bob.straight(65)
     print("Done")
     hub.speaker.play_notes(["D4/8", "C#4/8", "D4/4", "A3/4", "G3/4"])
     hub.display.icon(Icon.HAPPY)
     bob.use_gyro(False)
-    
 
-# this code allows you to run this code directly without using
-# the menu system
+# this code allows you to run this code directly without using the menu system
 if __name__ == '__main__':
     print("testing")
     hub = InventorHub()
