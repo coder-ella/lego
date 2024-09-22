@@ -36,12 +36,13 @@ def clean(hub, bob):
     bob.settings(default_settings[0],default_settings[1],default_settings[2],default_settings[3])
     bob.straight(1000)
         
-    hub.speaker.play_notes([
+    #hub.speaker.play_notes([
     "G3/4", "G3/4", "G3/4", "C3/4.",  
     "G3/4","F3/4","E3/4","D3/4", "C4/4.",
     "G3/4","F3/4","E3/4","D3/4", "C4/4.",
     "G3/4","F3/4","E3/4","F3/4","D3/4.", 
     ])
+    hub.speaker.play_notes(["D#6/4"])
     
     print("done")
 
