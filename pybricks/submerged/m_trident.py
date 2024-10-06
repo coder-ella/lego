@@ -3,6 +3,7 @@ from pybricks.pupdevices import Motor, ColorSensor, UltrasonicSensor, ForceSenso
 from pybricks.parameters import Button, Color, Direction, Port, Side, Stop, Icon       
 from pybricks.robotics import DriveBase
 from pybricks.tools import wait, StopWatch
+from item_collection_test_run_cablooie_2 import item_collection
 
 # https://docs.pybricks.com/en/latest/robotics.html
 
@@ -46,25 +47,35 @@ def m_10(hub, bob, moyrorR, moyrorL):
     bob.straight(-200)
     print("Mission 14_Trident Completed")
     bob.settings(straight_acceleration=9704)
-    bob.straight(-200)
-    bob.turn(-45)
+    print("GO HOME")
+    bob.straight(-100)
+    bob.turn(45)
+    bob.straight(-400)
+    #bob.turn(-45)
+    '''
     print("Wallsquare")
     bob.straight(-250)
     bob.settings(straight_acceleration=727)
     print("Initiate Mission 6")
-    bob.straight(370)
+    #bob.straight(370)
     bob.turn(35)
     bob.straight(10)
     bob.straight(50, wait=False)
     moyrorR.run_angle(100, 270)
+    bob.straight(-50)
     print("Mission 6 Completed")
     print("Done")
-    #Do not delete pleeeease I worked hard
+    '''
+    
+    #input("Play beautiful music?")
+    #Do delete pleeeease I worked hard
+    '''
     hub.speaker.play_notes(["D4/8", "C#4/8", "D4/4", "A3/4", "G3/4", "D4/8", 
     "C#4/8", "D4/4", "A3/4", "G3/4", "D4/8", "C#4/8", "C#4/8", "D4/2", "A3/4", 
     "D3/4", "C4/2", "D4/8", "C#4/8", "D4/4", "A3/4", "G3/4", "D4/8", "C#4/8", 
     "D4/4", "A3/4", "G3/4", "D4/8", "C#4/8", "C#4/8", "D4/2", "A3/4", "D3/4", 
     "D4/2", "C#4/2", "D4/1"])
+    '''
     hub.display.icon(Icon.SAD)
     wait(200)
     bob.use_gyro(False)
@@ -86,3 +97,5 @@ if __name__ == '__main__':
     # remember to rename the below name to match
     # your function name on line 11
     m_10(hub, bob, moyrorR,moyrorL)
+    wait(2000)
+    item_collection(hub, bob, moyrorR, moyrorL)

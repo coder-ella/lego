@@ -11,7 +11,7 @@ from pybricks.tools import wait, StopWatch
 # - 
 # - 
 
-def m_10(hub, bob, moyrorR, moyrorL):
+def item_collection(hub, bob, moyrorR, moyrorL):
     """
     function for run 1
 
@@ -52,16 +52,15 @@ def m_10(hub, bob, moyrorR, moyrorL):
     bob.turn(35)
     hub.speaker.beep(8000)
     print("Go to kelp")
-    bob.straight(900)
+    bob.straight(850)
     print("Break")
     bob.settings(straight_acceleration= 200, turn_acceleration= 200)
-    bob.straight(200)
+    #bob.straight(200)
     #bob.turn(-20)
     print("Go to Home")
-    bob.straight(-300)
-    bob.turn(50)
+    bob.turn(60)
     bob.settings(straight_acceleration= 900, turn_acceleration= 200)
-    bob.straight(800)
+    bob.straight(670)
     print("Done")
     moyrorR.run_until_stalled(-1000,duty_limit=50)
     hub.speaker.play_notes(["D4/8", "C#4/8", "D4/4", "A3/4", "G3/4"])
@@ -85,4 +84,4 @@ if __name__ == '__main__':
     # call your function.
     # remember to rename the below name to match
     # your function name on line 11
-    m_10(hub, bob, moyrorR,moyrorL)
+    item_collection(hub, bob, moyrorR,moyrorL)
