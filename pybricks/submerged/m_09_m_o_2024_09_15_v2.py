@@ -16,7 +16,7 @@ def m_09(hub, bob, moyrorR, moyrorL):
         bob: the drive base
         moyrorR: The right attachment motor
     """
-    print("2024-09-15")
+    print("2024-10-6")
     bob.use_gyro(True)
     #Clear terminal
     print("\x1b[H\x1b[2J", end="")
@@ -80,15 +80,22 @@ def m_09(hub, bob, moyrorR, moyrorL):
     #moyrorR.run_angle(500,105)
     wait(100)
     bob.straight(-30)
-    moyrorR.run_angle(100, 20)
+    print("PICK UP DIVER JIMMY GUY MAN BOY")
+    moyrorR.run_angle(100, 15)
+    hub.speaker.beep()
+    hub.speaker.beep()
     print("Mission 1 Completed")
     print("Initiating Mission 4b")
     bob.turn(160)
-    moyrorR.run_angle(300, -23)
-    bob.straight(50)
+    moyrorR.run_angle(300, -13) # was -23
+    print("drive to the hanging")
+    bob.straight(38) # was 40
     bob.turn(-20)
     bob.straight(50)
     print("Mission 4b Completed")
+    print("Initiating backup to home")
+    bob.turn(-20)
+    bob.straight(-850)
     print("Done")
     hub.speaker.play_notes(["D4/8", "C#4/8", "D4/4", "A3/4", "G3/4"])
     hub.display.icon(Icon.HAPPY)
