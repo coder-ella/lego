@@ -6,7 +6,7 @@ from pybricks.tools import wait, StopWatch
 
 # https://docs.pybricks.com/en/latest/robotics.html
 
-def m_01_coral_tree(hub, bob, moyrorR, moyrorL):
+def kelp_mission(hub, bob, moyrorR, moyrorL):
     """
     function for run 1
 
@@ -92,4 +92,4 @@ if __name__ == '__main__':
     # call your function.
     # remember to rename the below name to match
     # your function name on line 11
-    m_01_coral_tree(hub, bob, moyrorR,moyrorL)
+    kelp_mission(hub, bob, moyrorR,moyrorL)
