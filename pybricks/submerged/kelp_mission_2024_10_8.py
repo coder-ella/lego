@@ -16,7 +16,7 @@ def kelp_mission(hub, bob, moyrorR, moyrorL):
         bob: the drive base
         moyrorR: The right attachment motor
     """
-    print("2024-10-08")
+    print("2024-10-06")
     bob.use_gyro(True)
     #Clear terminal
     print("\x1b[H\x1b[2J", end="")
@@ -29,13 +29,30 @@ def kelp_mission(hub, bob, moyrorR, moyrorL):
     #moyrorR.run_angle(500, 300)
     print("\x1b[H\x1b[2J", end="")
 
-    '''
+    #moyrorR.run_angle(-)
+    #bob.settings(straight_speed=485, straight_acceleration=9704
+    #,turn_rate=663, turn_acceleration=13271) 
+    #moyrorR.run_angle(50,50,wait=False)
+    #bob.turn(45)
+    """
+    moyrorR.run_until_stalled(1000,duty_limit=50)
+    bob.straight(800)
+    bob.turn(90)
+    bob.straight(20)
+    moyrorR.run_until_stalled(-1000,duty_limit=50)
+    bob.straight(-1000)
+    bob.turn(-20)
+    bob.straight(-300)
+    bob.turn(-60)
+    bob.straight(-700)
+    """
     moyrorR.run_angle(300, 100)
     bob.straight(900)
     bob.turn(-65)
-    bob.straight(60) # was 20
-    # Grab yellow beam for radar mission
+    bob.straight(20)
     moyrorR.run_angle(300, -130)
+    hub.speaker.beep()
+    wait(100)
     bob.straight(-30)
     bob.turn(-45)
     moyrorR.run_angle(300,100)
@@ -52,46 +69,8 @@ def kelp_mission(hub, bob, moyrorR, moyrorL):
     hub.speaker.beep()
     wait(500)
     bob.straight(900)
-    '''
-   #moyrorR.run_until_stalled(-100,duty_limit=50)
 
-   #Start on first black line from the left
-   #For Next Meeting
-   # - Get this consistent
-   # - Lift after pulling over first time
-   # - Doesn't need to use yellow arm for second part
-   # - Rewatch video?
-    print("Wallsquare")
-    moyrorR.run_angle(100,50)
-    bob.straight(-50)
-    print("Head to Mission 11")
-    bob.straight(700)
-    bob.turn(-90)
-    bob.straight(175)
-    # go to 
-    bob.turn(90)
-    print("Face Mission 11")
-    bob.straight(100)
-    moyrorR.run_angle(100,-42)
-    bob.straight(-80)
-    print("Mission 11 Part II")
-    bob.turn(-30)
-    bob.turn(20)
-    moyrorR.run_angle(100,20)
-    bob.straight(50)
-    moyrorR.run_angle(100,100)
-    bob.straight(-800)
-    return
-
-    """
-    bob.settings(straight_speed=970, straight_acceleration=9704
-    ,turn_rate=1327, turn_acceleration=13271) 
-    bob.straight(1000)
-    moyrorR.run_angle(100,100)
-    bob.turn(690)
-    bob.straight(100)
-    moyrorR.run_until_stalled(-100,duty_limit=50)
-    """
+    
     print("Done")
     moyrorR.run_until_stalled(-1000,duty_limit=50)
     hub.speaker.play_notes(["D4/8", "C#4/8", "D4/4", "A3/4", "G3/4"])
@@ -116,4 +95,3 @@ if __name__ == '__main__':
     # remember to rename the below name to match
     # your function name on line 11
     kelp_mission(hub, bob, moyrorR,moyrorL)
-    hub.speaker.beep()
