@@ -22,7 +22,7 @@ def m_10(hub, bob, moyrorR, moyrorL):
         bob: the drive base
         moyrorR: The right attachment motor
     """
-    print("2024-09-17")
+    print("2024-10-13")
     bob.use_gyro(True)
     #Clear terminal
     print("\x1b[H\x1b[2J", end="")
@@ -51,6 +51,7 @@ def m_10(hub, bob, moyrorR, moyrorL):
     bob.straight(-100)
     bob.turn(45)
     bob.straight(-400)
+    moyrorR.run_until_stalled(1000,duty_limit=50)
     #bob.turn(-45)
     '''
     print("Wallsquare")
@@ -97,5 +98,5 @@ if __name__ == '__main__':
     # remember to rename the below name to match
     # your function name on line 11
     m_10(hub, bob, moyrorR,moyrorL)
-    wait(2000)
+    wait(3000)
     item_collection(hub, bob, moyrorR, moyrorL)

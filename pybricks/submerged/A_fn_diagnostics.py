@@ -23,6 +23,7 @@ def run_diagnostics(hub):
     print(f"version is{pybricks.version}")
     print(f"hub id is {hub.system.name()}")
     
+    print(f"Voltage: {voltage} Max:{VMAX} Min:{VMIN}")
 
     #Determine battery percentage
     if voltage >= VMAX:

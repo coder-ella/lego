@@ -3,6 +3,9 @@ from pybricks.pupdevices import Motor, ColorSensor, UltrasonicSensor, ForceSenso
 from pybricks.parameters import Button, Color, Direction, Port, Side, Stop, Icon       
 from pybricks.robotics import DriveBase
 from pybricks.tools import wait, StopWatch
+from A_fn_diagnostics import run_diagnostics
+import sys
+
 
 # https://docs.pybricks.com/en/latest/robotics.html
 
@@ -10,6 +13,19 @@ from pybricks.tools import wait, StopWatch
 # - Move less toward augmented reality
 # - Perfect turn to get to setup for light show
 # - 
+
+'''
+# default settings
+bob.settings(straight_speed=194, straight_acceleration=727
+    ,turn_rate=221, turn_acceleration=995)
+
+#max values allowed
+bob.settings(straight_speed=970, straight_acceleration=9704
+    ,turn_rate=1327, turn_acceleration=13271) 
+# high speed
+bob.settings(straight_speed=485, straight_acceleration=9704
+    ,turn_rate=663, turn_acceleration=13271) 
+'''
 
 def test(hub, bob, moyrorR, moyrorL):
     """
@@ -22,6 +38,9 @@ def test(hub, bob, moyrorR, moyrorL):
         moyrorR: The right attachment motor
     """
     print("2024-08-19")
+    fn_name = sys._getframe().f_code.co_name
+    print(fn_name)
+
     bob.use_gyro(True)
     #Clear terminal
     print("\x1b[H\x1b[2J", end="")
@@ -43,8 +62,10 @@ def test(hub, bob, moyrorR, moyrorL):
 # this code allows you to run this code directly without using
 # the menu system
 if __name__ == '__main__':
-    print("testing")
+    print(__name__)
+
     hub = InventorHub()
+    
     motor_left = Motor(Port.A, Direction.COUNTERCLOCKWISE)
     motor_right = Motor(Port.B,Direction.CLOCKWISE)
     moyrorR = Motor(Port.F)

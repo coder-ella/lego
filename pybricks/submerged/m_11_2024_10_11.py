@@ -3,8 +3,21 @@ from pybricks.pupdevices import Motor, ColorSensor, UltrasonicSensor, ForceSenso
 from pybricks.parameters import Button, Color, Direction, Port, Side, Stop, Icon       
 from pybricks.robotics import DriveBase
 from pybricks.tools import wait, StopWatch
+from A_fn_diagnostics import run_diagnostics
 
 # https://docs.pybricks.com/en/latest/robotics.html
+'''
+# default settings
+bob.settings(straight_speed=194, straight_acceleration=727
+    ,turn_rate=221, turn_acceleration=995)
+
+#max values allowed
+bob.settings(straight_speed=970, straight_acceleration=9704
+    ,turn_rate=1327, turn_acceleration=13271) 
+# high speed
+bob.settings(straight_speed=485, straight_acceleration=9704
+    ,turn_rate=663, turn_acceleration=13271) 
+'''
 
 def kelp_mission(hub, bob, moyrorR, moyrorL):
     """
@@ -16,7 +29,7 @@ def kelp_mission(hub, bob, moyrorR, moyrorL):
         bob: the drive base
         moyrorR: The right attachment motor
     """
-    print("2024-10-11")
+    print("2024-10-13")
     bob.use_gyro(True)
     #Clear terminal
     print("\x1b[H\x1b[2J", end="")
@@ -61,6 +74,8 @@ def kelp_mission(hub, bob, moyrorR, moyrorL):
    # - Lift after pulling over first time
    # - Doesn't need to use yellow arm for second part
    # - Rewatch video?
+    #moyrorR.run_until_stalled(-100)
+    #moyrorR.reset_angle()
     print("Wallsquare")
     moyrorR.run_angle(100,50)
     bob.straight(-50)
@@ -74,22 +89,42 @@ def kelp_mission(hub, bob, moyrorR, moyrorL):
     bob.straight(100)
     moyrorR.run_angle(100,-42)
     bob.straight(-83)
+    hub.speaker.beep()
+    # lift arm from sonar, for collab mission
+    moyrorR.run_angle(100,33) # was 30
     print("Go to Mission 10")
-    moyrorR.run_angle(100,30)
-    bob.turn(-60)
+    bob.turn(-58) # changed just before lunch, was 60
     bob.straight(280)
     #change to run until stalled
-    moyrorR.run_angle(100,90)
-    bob.straight(-100)
+    #moyrorR.run_angle(100,90)
+    print("Lift Up Collab Mission")
+    moyrorR.run_until_stalled(100,duty_limit=100)
+    bob.straight(-100) # was -100
     bob.turn(-30)
-    bob.straight(450)
+    print("Go towards Sand Sample")
+    moyrorR.run_angle(100,70)
+    # drive forward towards seabed and glowfish (perpendicular to seabed)
+    bob.straight(470) # was 450
     bob.turn(90)
-    bob.straight(-135)
-    moyrorR.run_until_stalled(-100,duty_limit=50)
-    moyrorR.run_angle(100, 30)
-    bob.straight(150)
-    moyrorR.run_angle(100, 100)
-    bob.straight(-150)
+    # back imto fish 
+    bob.straight(-100) # was -135
+    # arm down to reset (Seabed sample)
+    moyrorR.run_until_stalled(-200,duty_limit=80)
+    hub.speaker.beep()
+    # raise arm for seabed sample
+    moyrorR.run_angle(100,73) # was 60
+    bob.straight(90) # go to grab seabed sample, was 150
+    moyrorR.run_angle(70,100)
+    bob.straight(-45) # was 150
+    print("Mission Sand Sample Complete")
+    print("Drive at kelp")
+    bob.turn(90)
+    bob.straight(760)
+    bob.turn(-20)
+    moyrorR.run_until_stalled(-1000,duty_limit=50)
+    bob.straight(-100)
+    bob.turn(90)
+    bob.straight(500)
     hub.speaker.beep()
 
     """
@@ -129,8 +164,11 @@ def kelp_mission(hub, bob, moyrorR, moyrorL):
 # this code allows you to run this code directly without using
 # the menu system
 if __name__ == '__main__':
-    print("testing")
+    print(__name__)
+    
     hub = InventorHub()
+    run_diagnostics(hub)
+
     motor_left = Motor(Port.B, Direction.COUNTERCLOCKWISE)
     motor_right = Motor(Port.A,Direction.CLOCKWISE)
     moyrorR = Motor(Port.F)
