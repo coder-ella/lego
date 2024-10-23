@@ -98,5 +98,5 @@ if __name__ == '__main__':
     # remember to rename the below name to match
     # your function name on line 11
     m_10(hub, bob, moyrorR,moyrorL)
-    wait(3000)
-    item_collection(hub, bob, moyrorR, moyrorL)
+   # wait(3000)
+    #item_collection(hub, bob, moyrorR, moyrorL)

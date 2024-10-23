@@ -17,6 +17,7 @@ def m_09(hub, bob, moyrorR, moyrorL):
         moyrorR: The right attachment motor
     """
     print("2024-10-6")
+    #Use this code
     bob.use_gyro(True)
     #Clear terminal
     print("\x1b[H\x1b[2J", end="")
@@ -63,7 +64,7 @@ def m_09(hub, bob, moyrorR, moyrorL):
     moyrorR.run_angle(500,120)
     print("Initiating to Mission 2")
     bob.turn(-20)
-    bob.straight(550)
+    bob.straight(552.5) # Was 550
     moyrorR.run_until_stalled(-1000, duty_limit=85)
     #moyrorR.run_angle(500, -160)
     print("Mission 2 Completed")
@@ -76,18 +77,20 @@ def m_09(hub, bob, moyrorR, moyrorL):
     print("Attempt to ram Scuba Jimmy")
     bob.straight(100)
     print("Initiating Mission 1")
-    moyrorR.run_until_stalled(1000, duty_limit=50)
-    #moyrorR.run_angle(500,105)
+    print("lift Scuba Jimmy")
+    #moyrorR.run_until_stalled(1000, duty_limit=50)
+    moyrorR.run_angle(50,30) # 30 was 45
     wait(100)
     bob.straight(-30)
-    print("PICK UP DIVER JIMMY GUY MAN BOY")
-    moyrorR.run_angle(100, 15)
+    print("PICK UP DIVER JIMMY GUY MAN BOY2")
+    #moyrorR.run_angle(5, 15)
     hub.speaker.beep()
+    wait(10)
     hub.speaker.beep()
     print("Mission 1 Completed")
     print("Initiating Mission 4b")
     bob.turn(160)
-    moyrorR.run_angle(300, -13) # was -23
+    moyrorR.run_angle(50, -13) # was -2
     print("drive to the hanging")
     bob.straight(38) # was 40
     bob.turn(-20)
@@ -103,7 +106,7 @@ def m_09(hub, bob, moyrorR, moyrorL):
 
 # this code allows you to run this code directly without using the menu system
 if __name__ == '__main__':
-    print("testing")
+    print(__name__)
     hub = InventorHub()
     motor_left = Motor(Port.B, Direction.COUNTERCLOCKWISE)
     motor_right = Motor(Port.A,Direction.CLOCKWISE)

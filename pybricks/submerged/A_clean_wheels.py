@@ -41,6 +41,7 @@ def clean(hub, bob):
     "G3/4","F3/4","E3/4","D3/4", "C4/4.",
     "G3/4","F3/4","E3/4","D3/4", "C4/4.",
     "G3/4","F3/4","E3/4","F3/4","D3/4.",
+    
     hub.speaker.play_notes(["D#6/4"])
     
     print("done")

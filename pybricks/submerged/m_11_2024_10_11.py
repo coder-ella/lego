@@ -3,7 +3,7 @@ from pybricks.pupdevices import Motor, ColorSensor, UltrasonicSensor, ForceSenso
 from pybricks.parameters import Button, Color, Direction, Port, Side, Stop, Icon       
 from pybricks.robotics import DriveBase
 from pybricks.tools import wait, StopWatch
-from A_fn_diagnostics import run_diagnostics
+#from A_fn_diagnostics import run_diagnostics
 
 # https://docs.pybricks.com/en/latest/robotics.html
 '''
@@ -167,7 +167,7 @@ if __name__ == '__main__':
     print(__name__)
     
     hub = InventorHub()
-    run_diagnostics(hub)
+    #run_diagnostics(hub)
 
     motor_left = Motor(Port.B, Direction.COUNTERCLOCKWISE)
     motor_right = Motor(Port.A,Direction.CLOCKWISE)
