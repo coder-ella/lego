@@ -51,26 +51,28 @@ def m_09(hub, bob, moyrorR, moyrorL):
     print("Leaving Home")
     moyrorR.run_angle(500,-180)
     bob.straight(-20)
-    bob.straight(100)
+    bob.straight(115) # was 100
     print("Initiating Mission 5")
     bob.turn(-51)
-    bob.straight(1210)#was 1220
+    bob.straight(1208)#was 1220, then 1210
     print("Mission 5 Complete")
     print("Initiating Mission 3")
     bob.turn(-11)
-    moyrorR.run_angle(500, -100)
-    bob.straight(-200)
+    print("Press down on Mission 3")
+    moyrorR.run_angle(500, -110) # was 100
     print("Mission 3 Completed")
     moyrorR.run_angle(500,120)
+    bob.straight(-200)
     print("Initiating to Mission 2")
     bob.turn(-20)
-    bob.straight(552.5) # Was 550
-    moyrorR.run_until_stalled(-1000, duty_limit=85)
+    bob.straight(551.5) # Was 550, then 552.5
+    moyrorR.run_until_stalled(-1000, duty_limit=100) # dl was 85
     #moyrorR.run_angle(500, -160)
-    print("Mission 2 Completed")
-    moyrorR.run_angle(500, 130)
     print("Initiating Mission 4")
     bob.straight(-20)
+    print("Mission 2 Completed")
+    moyrorR.run_angle(500, 70) # was 130, then 75
+    hub.speaker.beep()
     print("Turn toward scuba Jimmy")
     bob.turn(-25)
     wait(100)
@@ -79,7 +81,7 @@ def m_09(hub, bob, moyrorR, moyrorL):
     print("Initiating Mission 1")
     print("lift Scuba Jimmy")
     #moyrorR.run_until_stalled(1000, duty_limit=50)
-    moyrorR.run_angle(50,30) # 30 was 45
+    moyrorR.run_angle(50,32) # 30 was 45
     wait(100)
     bob.straight(-30)
     print("PICK UP DIVER JIMMY GUY MAN BOY2")
