@@ -5,21 +5,26 @@ from pybricks.pupdevices import Motor, ColorSensor, UltrasonicSensor
 from pybricks.robotics import DriveBase
 
 from A_fn_diagnostics import run_diagnostics
-from A_joe4 import Everett_Grace_Function
-from A_Light_Show_Mission_Current import *
-from A_clean_wheels import *
+from A_clean_wheels import clean
+
+from item_collection_test_run_cablooie_2 import item_collection
+from m_09_m_o_2024_09_15_v2 import m_09
+from m_11_2024_10_11 import kelp_mission
+from m_trident import m_10
+from z_jurasic_park import jurasic_park_theme
+
+
 
 hub = InventorHub()
-motor_left = Motor(Port.C, Direction.COUNTERCLOCKWISE)
-motor_right = Motor(Port.D,Direction.CLOCKWISE)
-motor_attach_left = Motor(Port.A)
-motor_attach_right = Motor(Port.B)
-#sensor = ColorSensor(Port.F)
-#sensor_2 = ColorSensor(Port.E)
+motor_left = Motor(Port.B, Direction.COUNTERCLOCKWISE)
+motor_right = Motor(Port.A,Direction.CLOCKWISE)
+moyrorR = Motor(Port.F)
+moyrorL = Motor(Port.E)
 bob = DriveBase(left_motor = motor_left, right_motor=motor_right,
-wheel_diameter = 55.6, axle_track = 83.79999999699997)
+wheel_diameter = 55.6, axle_track = 83.79999999999997)
 
-menu_options = ("1", "2", "D", "C", "X") #forward, left, right, back, exit
+#runs (in order), jurassic park theme, stop
+menu_options = ("1", "2", "3", "4", "J", "C", "D", "X")
 menu_index = 0
 num_options = len(menu_options)
 
@@ -80,14 +85,19 @@ while True:
     # Based on the selection, choose a program.
     selected = do_menu(hub)
     if selected == "1":
-        light_show_run(hub, bob, motor_attach_right)
+        item_collection(hub,bob,moyrorR,moyrorL)
     elif selected == "2":
-        Everett_Grace_Function(hub, bob, motor_attach_left)
-    elif selected == "D":
-        print(f"bob's settings are{bob.settings()}")
-        run_diagnostics(hub)
+        kelp_mission(hub,bob,moyrorR,moyrorL)
+    elif selected == "3":
+        m_09(hub,bob,moyrorR,moyrorL)
+    elif selected == "4":
+        m_10(hub,bob,moyrorR,moyrorL)
+    elif selected == "J":
+        jurasic_park_theme(hub,bob,moyrorR,moyrorL)
     elif selected == "C":
-        clean(hub, bob)
+        clean(hub,bob)
+    elif selected == "D":
+        run_diagnostics(hub)
     else:
         print("done!")
         # this is the only way to stop PyBricks

@@ -20,6 +20,7 @@ if __name__ == '__main__':
     moyrorL = Motor(Port.E)
     bob = DriveBase(left_motor = motor_left, right_motor=motor_right,
     wheel_diameter = 55.6, axle_track = 83.79999999999997)
+    hub.system.set_stop_button(Button.LEFT)
 
     # Wait for any button.
     pressed = ()
@@ -29,12 +30,16 @@ if __name__ == '__main__':
     hub.speaker.beep()
     item_collection(hub,bob,moyrorR,moyrorL)
 
+    hub.speaker.beep()
+
     pressed = ()
     while not pressed:
         pressed = hub.buttons.pressed()
         wait(10)
     hub.speaker.beep()
     kelp_mission(hub,bob,moyrorR,moyrorL)
+
+    hub.speaker.beep()
 
     pressed = ()
     while not pressed:
@@ -43,11 +48,14 @@ if __name__ == '__main__':
     hub.speaker.beep()
     m_09(hub,bob,moyrorR,moyrorL)
 
+    hub.speaker.beep()
+
     pressed = ()
     while not pressed:
         pressed = hub.buttons.pressed()
         wait(10)
     hub.speaker.beep()
     m_10(hub,bob,moyrorR,moyrorL)
-    print("Submerged 2024 Complete")
+    print("Submerged 2024 Mission Run Complete")
     jurasic_park_theme(hub,bob,moyrorR,moyrorL)
+
