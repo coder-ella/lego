@@ -95,3 +95,7 @@ if __name__ == '__main__':
     print("testing")
     hub = InventorHub()
     run_diagnostics(hub)
+
+
+#2024-11-02: version is('primehub', '3.5.0', 'v1.20.0-23-g6c633a8dd on 2024-04-11')
+#2024-11-03: version is('primehub', '3.6.0b2', 'ci-release-81-v3.6.0b2 on 2024-10-15')

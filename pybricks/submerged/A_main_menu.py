@@ -9,6 +9,7 @@ from A_clean_wheels import clean
 
 from item_collection_test_run_cablooie_2 import item_collection
 from m_09_m_o_2024_09_15_v2 import m_09
+from m_09_m_o_2024_09_15_v2_p2 import m_09_p2
 from m_11_2024_10_11 import kelp_mission
 from m_trident import m_10
 from z_jurasic_park import jurasic_park_theme
@@ -24,7 +25,7 @@ bob = DriveBase(left_motor = motor_left, right_motor=motor_right,
 wheel_diameter = 55.6, axle_track = 83.79999999999997)
 
 #runs (in order), jurassic park theme, stop
-menu_options = ("1", "2", "3", "4", "J", "C", "D", "X")
+menu_options = ("1", "2", "3", "4", "5", "J", "C", "D", "X")
 menu_index = 0
 num_options = len(menu_options)
 
@@ -54,6 +55,7 @@ def do_menu(hub):
             # Center button, this is the selection button, so we can exit the
             # selection loop
             print(f"Selected Index: {menu_index}")
+            hub.speaker.beep()
             break
         elif Button.LEFT in pressed:
             # Left button, so decrement menu menu_index.
@@ -91,6 +93,8 @@ while True:
     elif selected == "3":
         m_09(hub,bob,moyrorR,moyrorL)
     elif selected == "4":
+        m_09_p2(hub,bob,moyrorR,moyrorL)
+    elif selected == "5":
         m_10(hub,bob,moyrorR,moyrorL)
     elif selected == "J":
         jurasic_park_theme(hub,bob,moyrorR,moyrorL)

@@ -99,6 +99,7 @@ def kelp_mission(hub, bob, moyrorR, moyrorL):
     #moyrorR.run_angle(100,90)
     print("Lift Up Collab Mission")
     moyrorR.run_until_stalled(1000,duty_limit=100)
+    moyrorR.run_angle(100,15)
     bob.straight(-120) # was -100
     bob.turn(-30)
     print("Go towards Sand Sample")
@@ -119,7 +120,7 @@ def kelp_mission(hub, bob, moyrorR, moyrorL):
     print("Mission Sand Sample Complete")
     print("Drive at kelp")
     bob.turn(90)
-    bob.straight(760)
+    bob.straight(775)#was 760
     bob.turn(-20)
     moyrorR.run_until_stalled(-1000,duty_limit=50)
     bob.straight(-100)

@@ -91,16 +91,24 @@ def kelp_mission(hub, bob, moyrorR, moyrorL):
     bob.straight(-83)
     hub.speaker.beep()
     # lift arm from sonar, for collab mission
-    moyrorR.run_angle(100,33) # was 30
+    moyrorR.run_angle(100,33) # was 33
     print("Go to Mission 10")
-    bob.turn(-58) # changed just before lunch, was 60
-    bob.straight(300)#280 #300
+    bob.turn(-62)
+    bob.straight(350)
     #change to run until stalled
     #moyrorR.run_angle(100,90)
+    moyrorR.run_angle(100,-40) #was -20# DROP FOR COLLAB MISSION
+    hub.speaker.beep(100,100)
+    bob.turn(14)# was 20
     print("Lift Up Collab Mission")
+    #moyrorR.run_angle(100, 100)
     moyrorR.run_until_stalled(1000,duty_limit=100)
+    moyrorR.run_angle(100,-20)
+    #moyrorR.run_angle(100, 100)
+    moyrorR.run_until_stalled(1000,duty_limit=100)
+    moyrorR.run_angle(100, -40)
+    bob.turn(-14)
     bob.straight(-120) # was -100
-    bob.turn(-30)
     print("Go towards Sand Sample")
     moyrorR.run_angle(100,70)
     # drive forward towards seabed and glowfish (perpendicular to seabed)
@@ -126,7 +134,6 @@ def kelp_mission(hub, bob, moyrorR, moyrorL):
     bob.turn(90)
     bob.straight(500)
     hub.speaker.beep()
-
     """
     print("Lift Arm After 1st Whale")
     moyrorR.run_angle(100,45)
