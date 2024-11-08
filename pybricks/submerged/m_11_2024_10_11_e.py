@@ -10,6 +10,7 @@ from pybricks.tools import wait, StopWatch
 # default settings
 bob.settings(straight_speed=194, straight_acceleration=727
     ,turn_rate=221, turn_acceleration=995)
+
 #max values allowed
 bob.settings(straight_speed=970, straight_acceleration=9704
     ,turn_rate=1327, turn_acceleration=13271) 
@@ -21,6 +22,7 @@ bob.settings(straight_speed=485, straight_acceleration=9704
 def kelp_mission(hub, bob, moyrorR, moyrorL):
     """
     function for run 1
+
     
     Arguments:
         hub: the hub
@@ -31,7 +33,7 @@ def kelp_mission(hub, bob, moyrorR, moyrorL):
     bob.use_gyro(True)
     #Clear terminal
     print("\x1b[H\x1b[2J", end="")
-
+    
     print("Hold on to your butts...")
     bob.settings(970, 5000)
     bob.settings(straight_acceleration= 300, turn_acceleration= 200)
@@ -67,7 +69,6 @@ def kelp_mission(hub, bob, moyrorR, moyrorL):
    #moyrorR.run_until_stalled(-100,duty_limit=50)
 
    #Start on first black line from the left and move it a half-centimeter to the right
-   
    #For Next Meeting
    # - Get this consistent
    # - Lift after pulling over first time
@@ -85,7 +86,7 @@ def kelp_mission(hub, bob, moyrorR, moyrorL):
     # go to 
     bob.turn(90)
     print("Face Mission 11")
-    bob.straight(110)
+    bob.straight(100)
     moyrorR.run_angle(100,-42)
     bob.straight(-83)
     hub.speaker.beep()
@@ -93,13 +94,12 @@ def kelp_mission(hub, bob, moyrorR, moyrorL):
     moyrorR.run_angle(100,33) # was 30
     print("Go to Mission 10")
     bob.turn(-58) # changed just before lunch, was 60
-    moyrorR.run_angle(200,-5)
-    bob.straight(330)
+    bob.straight(300)#280 #300
     #change to run until stalled
     #moyrorR.run_angle(100,90)
     print("Lift Up Collab Mission")
-    moyrorR.run_until_stalled(100,duty_limit=100)
-    bob.straight(-150) # was -100
+    moyrorR.run_until_stalled(1000,duty_limit=100)
+    bob.straight(-120) # was -100
     bob.turn(-30)
     print("Go towards Sand Sample")
     moyrorR.run_angle(100,70)
@@ -119,12 +119,12 @@ def kelp_mission(hub, bob, moyrorR, moyrorL):
     print("Mission Sand Sample Complete")
     print("Drive at kelp")
     bob.turn(90)
-    bob.straight(780)
+    bob.straight(760)
     bob.turn(-20)
     moyrorR.run_until_stalled(-1000,duty_limit=50)
     bob.straight(-100)
     bob.turn(90)
-    bob.straight(550)
+    bob.straight(500)
     hub.speaker.beep()
 
     """
@@ -159,13 +159,13 @@ def kelp_mission(hub, bob, moyrorR, moyrorL):
     hub.display.icon(Icon.SAD)
     wait(200)
     bob.use_gyro(False)
-
+    
 
 # this code allows you to run this code directly without using
 # the menu system
 if __name__ == '__main__':
     print(__name__)
-
+    
     hub = InventorHub()
     #run_diagnostics(hub)
 
@@ -180,3 +180,4 @@ if __name__ == '__main__':
     # remember to rename the below name to match
     # your function name on line 11
     kelp_mission(hub, bob, moyrorR,moyrorL)
+    hub.speaker.beep()
