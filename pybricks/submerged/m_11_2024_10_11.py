@@ -104,7 +104,7 @@ def kelp_mission(hub, bob, moyrorR, moyrorL):
     print("Go towards Sand Sample")
     moyrorR.run_angle(100,70)
     # drive forward towards seabed and glowfish (perpendicular to seabed)
-    bob.straight(470) # was 450
+    bob.straight(468) # was 470
     bob.turn(90)
     # back imto fish 
     bob.straight(-100) # was -135
@@ -156,7 +156,7 @@ def kelp_mission(hub, bob, moyrorR, moyrorL):
     print("Done")
     moyrorR.run_until_stalled(-1000,duty_limit=50)
     hub.speaker.play_notes(["D4/8", "C#4/8", "D4/4", "A3/4", "G3/4"])
-    hub.display.icon(Icon.SAD)
+    hub.display.icon(Icon.HAPPY)
     wait(200)
     bob.use_gyro(False)
 
