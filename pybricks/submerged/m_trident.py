@@ -12,7 +12,7 @@ from item_collection_test_run_cablooie_2 import item_collection
 # - 
 # - 
 
-def m_10(hub, bob, moyrorR, moyrorL):
+def m_10_1(hub, bob, moyrorR, moyrorL):
     """
     function for run 1
 

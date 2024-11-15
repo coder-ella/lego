@@ -92,15 +92,15 @@ def kelp_mission(hub, bob, moyrorR, moyrorL):
     # lift arm from sonar, for collab mission
     moyrorR.run_angle(100,33) # was 30
     print("Go to Mission 10")
-    bob.turn(-58) # changed just before lunch, was 60
+    bob.turn(-60) # changed again, was 58
     moyrorR.run_angle(200,-5)
     bob.straight(330)
     #change to run until stalled
     #moyrorR.run_angle(100,90)
     print("Lift Up Collab Mission")
-    moyrorR.run_until_stalled(100,duty_limit=100)
+    moyrorR.run_until_stalled(100,duty_limit=150)
     bob.straight(-150) # was -100
-    bob.turn(-30)
+    bob.turn(-28)
     print("Go towards Sand Sample")
     moyrorR.run_angle(100,70)
     # drive forward towards seabed and glowfish (perpendicular to seabed)
