@@ -54,7 +54,7 @@ def m_09_p2(hub, bob, moyrorR, moyrorL):
     print("Initiating to Mission 2")
     bob.turn(-20)
     bob.straight(551.5) # Was 550, then 552.5
-    moyrorR.run_until_stalled(-1000, duty_limit=100) # dl was 85
+    moyrorR.run_until_stalled(-2000, duty_limit=180) # dl was 100
     #moyrorR.run_angle(500, -160)
     print("Initiating Mission 4")
     bob.straight(-20)
