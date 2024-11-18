@@ -98,7 +98,7 @@ def kelp_mission(hub, bob, moyrorR, moyrorL):
     #change to run until stalled
     #moyrorR.run_angle(100,90)
     print("Lift Up Collab Mission")
-    moyrorR.run_until_stalled(100,duty_limit=150)
+    moyrorR.run_until_stalled(100,duty_limit=199) # was 150
     bob.straight(-150) # was -100
     bob.turn(-28)
     print("Go towards Sand Sample")
