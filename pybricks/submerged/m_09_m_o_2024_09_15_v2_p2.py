@@ -42,19 +42,22 @@ def m_09_p2(hub, bob, moyrorR, moyrorL):
     bob.straight(115) # was 100
     print("Initiating Mission 5")
     bob.turn(-51)
-    bob.straight(1208)#was 1220, then 1210
+    bob.settings(straight_acceleration= 700, turn_acceleration= 200)
+    bob.straight(1200)#was 1220, then 1210, then 1208
+    bob.settings(straight_acceleration= 300, turn_acceleration= 200)
     print("Mission 5 Complete")
     print("Initiating Mission 3")
     bob.turn(-11)
     print("Press down on Mission 3")
     moyrorR.run_angle(500, -110) # was 100
     print("Mission 3 Completed")
-    moyrorR.run_angle(500,120)
+    hub.speaker.beep()
     bob.straight(-200)
+    moyrorR.run_angle(500,120)
     print("Initiating to Mission 2")
     bob.turn(-20)
     bob.straight(551.5) # Was 550, then 552.5
-    moyrorR.run_until_stalled(-2000, duty_limit=180) # dl was 100
+    moyrorR.run_until_stalled(-2000, duty_limit=190) # dl was 100, then 180 
     #moyrorR.run_angle(500, -160)
     print("Initiating Mission 4")
     bob.straight(-20)
@@ -62,10 +65,11 @@ def m_09_p2(hub, bob, moyrorR, moyrorL):
     moyrorR.run_angle(500, 70) # was 130, then 75
     hub.speaker.beep()
     print("Turn toward scuba Jimmy")
+    hub.speaker.beep()
     bob.turn(-25)
     wait(100)
     print("Attempt to ram Scuba Jimmy")
-    bob.straight(100)
+    bob.straight(110)#was 100
     print("Initiating Mission 1")
     print("lift Scuba Jimmy")
     #moyrorR.run_until_stalled(1000, duty_limit=50)

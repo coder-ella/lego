@@ -16,7 +16,7 @@ def both_arms_down(hub, bob, moyrorR, moyrorL):
         bob: the drive base
         moyrorR: The right attachment motor
     """
-    print("2024-11-10")
+    print("both_arms_down 2024-11-10")
     bob.use_gyro(True)
     #Clear terminal
     print("\x1b[H\x1b[2J", end="")

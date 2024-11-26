@@ -25,36 +25,47 @@ def item_collection(hub, bob, moyrorR, moyrorL):
     bob.use_gyro(True)
     #Clear terminal
     print("\x1b[H\x1b[2J", end="")
+    
     print("Hold on to your butts...")
     bob.settings(970, 5000)
     bob.settings(straight_acceleration= 300, turn_acceleration= 200)
     hub.light.on(Color.GREEN)
-    #Starting on 1st bold line on right home
+    bob.straight(-100) #Starting on 1st bold line on right home
+    #moyrorR.run_angle(500, 45)
     print("\x1b[H\x1b[2J", end="")
 
     #Setup at 10 blocks left of the red line at home
 
     print("Wallsquare")
-    bob.straight(-5)
-    #moyrorR.run_angle(500, 100, wait=False)
-    bob.straight(25)
-    bob.curve(1700,23)
+    bob.straight(-10)
+    #moyrorR.run_until_stalled(1000,duty_limit=50)
+    moyrorR.run_angle(500, 100, wait=False)
+    bob.curve(1700,23) # was 1600,23
+    hub.speaker.beep(500)
     print("Grab Items")
-    bob.turn(45)
-    bob.straight(150)
-    bob.turn(20)
-    bob.settings(straight_speed=970, straight_acceleration=5000)
+    bob.curve(25,35) # was 25
+    hub.speaker.beep(2000)
+    bob.straight(240)
+    hub.speaker.beep(100)
+    bob.straight(50)
+    hub.speaker.beep(4000)
+    bob.turn(35)
+    hub.speaker.beep(8000)
     print("Go to kelp")
-    bob.straight(960)
+    bob.straight(850)
     print("Break")
     bob.settings(straight_acceleration= 200, turn_acceleration= 200)
-    wait(200)
+    #bob.straight(200)
+    #bob.turn(-20)
     print("Go to Home")
-    bob.turn(68)
+    bob.turn(60)
     bob.settings(straight_acceleration= 900, turn_acceleration= 200)
-    bob.straight(590)
+    bob.straight(670)
     print("Done")
     moyrorR.run_until_stalled(-1000,duty_limit=50)
+    hub.speaker.play_notes(["D4/8", "C#4/8", "D4/4", "A3/4", "G3/4"])
+    hub.display.icon(Icon.SAD)
+    wait(200)
     bob.use_gyro(False)
     
 

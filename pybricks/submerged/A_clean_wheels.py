@@ -25,7 +25,7 @@ def clean(hub, bob):
     default_settings = bob.settings()
     print(default_settings)
     
-    bob.settings(straight_speed=485, straight_acceleration=9704,turn_rate=663, turn_acceleration=13271) 
+    bob.settings(straight_speed=600, straight_acceleration=9704,turn_rate=663, turn_acceleration=13271) 
     wait(200)
     bob.straight(2000)
 

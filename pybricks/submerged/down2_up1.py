@@ -6,7 +6,7 @@ from pybricks.tools import wait, StopWatch
 
 # https://docs.pybricks.com/en/latest/robotics.html
 
-def both_arms_up(hub, bob, moyrorR, moyrorL):
+def left_up_right_down(hub, bob, moyrorR, moyrorL):
     """
     function for run 1
 
@@ -16,12 +16,12 @@ def both_arms_up(hub, bob, moyrorR, moyrorL):
         bob: the drive base
         moyrorR: The right attachment motor
     """
-    print("both_arms_up: 2024-11-10")
+    print("left_up_right_down 2024-11-10")
     bob.use_gyro(True)
     #Clear terminal
     print("\x1b[H\x1b[2J", end="")
 
-    moyrorL.run_until_stalled(-300,duty_limit=50)
+    moyrorL.run_until_stalled(300,duty_limit=50)
     moyrorR.run_until_stalled(-300,duty_limit=50)
 
 # this code allows you to run this code directly without using

@@ -15,8 +15,8 @@ from m_trident_shark import m_10
 from m_trident import m_10_1
 from z_jurasic_park import jurasic_park_theme
 from sample_return import boat_return
-
-
+from A_main_menu_arms import two_menu
+from do_menu import do_menu
 
 
 hub = InventorHub()
@@ -28,56 +28,14 @@ bob = DriveBase(left_motor = motor_left, right_motor=motor_right,
 wheel_diameter = 55.6, axle_track = 83.79999999999997)
 
 #runs (in order), jurassic park theme, stop
-menu_options = ("1", "2", "3", "4", "5", "6", "7", "J", "C", "D", "X")
-menu_index = 0
-num_options = len(menu_options)
+main_menu_options = ("1", "2", "3", "4", "5", "6", "7", "J", "C", "D", "A", "X")
+num_options = len(main_menu_options)
+
 
 # Clear terminal
 print("\x1b[H\x1b[2J", end="")
 
-def do_menu(hub):
-    # menu_index is global, so that it can remember what the last menu-index was
-    global menu_index
-    # Normally, the center button stops the program. But we want to use the
-    # center button for our menu. So we can disable the stop button.
-    hub.system.set_stop_button(None)
-    while True:
-        hub.display.char(menu_options[menu_index])
-        # Wait for any button.
-        pressed = ()
-        while not pressed:
-            pressed = hub.buttons.pressed()
-            wait(10)    
-        print(f"pressed: {pressed}")
-        # and then wait for the button to be released.
-        while hub.buttons.pressed():
-            wait(10)
-  
-        # Now check which button was pressed.
-        if Button.CENTER in pressed:
-            # Center button, this is the selection button, so we can exit the
-            # selection loop
-            print(f"Selected Index: {menu_index}")
-            hub.speaker.beep()
-            break
-        elif Button.LEFT in pressed:
-            # Left button, so decrement menu menu_index.
-            menu_index -= 1
-            if (menu_index < 0): #roll over!
-                menu_index = num_options - 1
-        elif Button.RIGHT in pressed:
-            # Right button, so increment menu menu_index.
-            menu_index += 1
-            if (menu_index >= num_options):
-                menu_index = 0
-        print(f"menu_index:{menu_index}")
-    
-    # Now we want to use the Center button as the stop button again.
-    hub.system.set_stop_button(Button.CENTER)
-    selected = menu_options[menu_index]
-    print(f"menu option selected {selected}")
-    
-    return selected
+
 
 
 '''
@@ -88,7 +46,7 @@ bob.settings(straight_speed=194, straight_acceleration=727
 selected = ""
 while True:
     # Based on the selection, choose a program.
-    selected = do_menu(hub)
+    selected = do_menu(hub,main_menu_options, num_options)
     if selected == "1":
         item_collection(hub,bob,moyrorR,moyrorL)
     elif selected == "2":
@@ -109,6 +67,8 @@ while True:
         clean(hub,bob)
     elif selected == "D":
         run_diagnostics(hub)
+    elif selected == "A":
+        two_menu(hub, bob, moyrorR, moyrorL)
     else:
         print("done!")
         # this is the only way to stop PyBricks

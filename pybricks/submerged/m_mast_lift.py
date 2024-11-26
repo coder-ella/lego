@@ -3,10 +3,16 @@ from pybricks.pupdevices import Motor, ColorSensor, UltrasonicSensor, ForceSenso
 from pybricks.parameters import Button, Color, Direction, Port, Side, Stop, Icon       
 from pybricks.robotics import DriveBase
 from pybricks.tools import wait, StopWatch
+from item_collection_test_run_cablooie_2 import item_collection
 
 # https://docs.pybricks.com/en/latest/robotics.html
 
-def both_arms_up(hub, bob, moyrorR, moyrorL):
+#CHANGES TO MAKE
+# - 
+# - 
+# - 
+
+def m_mast_lift(hub, bob, moyrorR, moyrorL):
     """
     function for run 1
 
@@ -16,13 +22,33 @@ def both_arms_up(hub, bob, moyrorR, moyrorL):
         bob: the drive base
         moyrorR: The right attachment motor
     """
-    print("both_arms_up: 2024-11-10")
+    print("2024-10-13")
     bob.use_gyro(True)
     #Clear terminal
     print("\x1b[H\x1b[2J", end="")
+    
+    print("Hold on to your butts...")
+    bob.settings(970, 5000)
+    bob.settings(straight_speed=250, straight_acceleration=600
+    ,turn_rate=150, turn_acceleration=700)
+    hub.light.on(Color.GREEN)
+    bob.straight(-10) #Starting on 1st bold line on right home
+    #moyrorR.run_angle(500, 45)
+    print("\x1b[H\x1b[2J", end="")
 
-    moyrorL.run_until_stalled(-300,duty_limit=50)
-    moyrorR.run_until_stalled(-300,duty_limit=50)
+    print("Move Forward and Raise the Mast")
+    bob.straight(450)
+    bob.turn(80)
+    bob.straight(200)
+    bob.straight(-220)
+    bob.turn(-80)
+    bob.straight(-500)
+
+    
+    hub.display.icon(Icon.SAD)
+    wait(200)
+    bob.use_gyro(False)
+    
 
 # this code allows you to run this code directly without using
 # the menu system
@@ -39,4 +65,6 @@ if __name__ == '__main__':
     # call your function.
     # remember to rename the below name to match
     # your function name on line 11
-    both_arms_up(hub, bob, moyrorR,moyrorL)
+    m_mast_lift(hub, bob, moyrorR,moyrorL)
+    # wait(3000)
+    #item_collection(hub, bob, moyrorR, moyrorL)
