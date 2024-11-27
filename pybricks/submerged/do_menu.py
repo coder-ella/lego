@@ -8,7 +8,7 @@ from pybricks.robotics import DriveBase
 def do_menu(hub, menu_options, num_options):
     # menu_index is global, so that it can remember what the last menu-index was
     global menu_index
-    menu_index = 0
+    menu_index=0
     # Normally, the center button stops the program. But we want to use the
     # center button for our menu. So we can disable the stop button.
     hub.system.set_stop_button(None)

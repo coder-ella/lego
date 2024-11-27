@@ -17,7 +17,7 @@ from z_jurasic_park import jurasic_park_theme
 from sample_return import boat_return
 from A_main_menu_arms import two_menu
 from do_menu import do_menu
-
+from m_mast_lift import mast_lift
 
 hub = InventorHub()
 motor_left = Motor(Port.B, Direction.COUNTERCLOCKWISE)
@@ -28,7 +28,7 @@ bob = DriveBase(left_motor = motor_left, right_motor=motor_right,
 wheel_diameter = 55.6, axle_track = 83.79999999999997)
 
 #runs (in order), jurassic park theme, stop
-main_menu_options = ("1", "2", "3", "4", "5", "6", "7", "J", "C", "D", "A", "X")
+main_menu_options = ("1", "2", "3", "4", "5", "6", "7", "8", "J", "C", "D", "A", "X")
 num_options = len(main_menu_options)
 
 
@@ -44,6 +44,8 @@ bob.settings(straight_speed=194, straight_acceleration=727
     ,turn_rate=221, turn_acceleration=995)
 '''
 selected = ""
+global menu_index
+menu_index = 0
 while True:
     # Based on the selection, choose a program.
     selected = do_menu(hub,main_menu_options, num_options)
@@ -58,8 +60,10 @@ while True:
     elif selected == "5":
         m_10(hub,bob,moyrorR,moyrorL)
     elif selected == "6":
-        boat_return(hub,bob,moyrorR,moyrorL)
+        mast_lift(hub, bob, moyrorR, moyrorL)
     elif selected == "7":
+        boat_return(hub,bob,moyrorR,moyrorL)
+    elif selected == "8":
         m_10_1(hub,bob,moyrorR,moyrorL)
     elif selected == "J":
         jurasic_park_theme(hub,bob,moyrorR,moyrorL)
@@ -73,4 +77,5 @@ while True:
         print("done!")
         # this is the only way to stop PyBricks
         raise SystemExit("Closing program..")
+    hub.display.char(main_menu_options[menu_index])
     bob.stop()

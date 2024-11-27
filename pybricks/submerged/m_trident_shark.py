@@ -42,7 +42,10 @@ def m_10(hub, bob, moyrorR, moyrorL):
     bob.turn(-20)
     bob.straight(165) # it was 150 before
     moyrorR.run_until_stalled(-250,duty_limit=80)
-    bob.straight(-600)
+    bob.settings(straight_acceleration= 500, turn_acceleration= 200)
+    bob.straight(-300)
+    bob.turn(45)
+    bob.straight(-400)
 
     hub.display.icon(Icon.SAD)
     wait(200)

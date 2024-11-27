@@ -73,7 +73,7 @@ def m_09_p2(hub, bob, moyrorR, moyrorL):
     print("Initiating Mission 1")
     print("lift Scuba Jimmy")
     #moyrorR.run_until_stalled(1000, duty_limit=50)
-    moyrorR.run_angle(50,32) # 30 was 45
+    moyrorR.run_angle(50,60) # 2nd 50 was 32
     wait(100)
     bob.straight(-30)
     print("PICK UP DIVER JIMMY GUY MAN BOY2")
@@ -84,7 +84,7 @@ def m_09_p2(hub, bob, moyrorR, moyrorL):
     print("Mission 1 Completed")
     print("Initiating Mission 4b")
     bob.turn(160)
-    moyrorR.run_angle(50, -13) # was -2
+    moyrorR.run_angle(50, -27) # was -13 #was -23
     print("drive to the hanging")
     bob.straight(38) # was 40
     bob.turn(-20)

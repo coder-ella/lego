@@ -12,7 +12,7 @@ from item_collection_test_run_cablooie_2 import item_collection
 # - 
 # - 
 
-def m_mast_lift(hub, bob, moyrorR, moyrorL):
+def mast_lift(hub, bob, moyrorR, moyrorL):
     """
     function for run 1
 
@@ -65,6 +65,6 @@ if __name__ == '__main__':
     # call your function.
     # remember to rename the below name to match
     # your function name on line 11
-    m_mast_lift(hub, bob, moyrorR,moyrorL)
+    mast_lift(hub, bob, moyrorR,moyrorL)
     # wait(3000)
     #item_collection(hub, bob, moyrorR, moyrorL)
