@@ -54,7 +54,7 @@ while True:
         item_collection(hub,bob,moyrorR,moyrorL)
         menu_code.menu_index = 1
     elif selected == "2":
-        #kelp_mission(hub,bob,moyrorR,moyrorL)
+        kelp_mission(hub,bob,moyrorR,moyrorL)
         menu_code.menu_index = 2
     elif selected == "3":
         m_09(hub,bob,moyrorR,moyrorL)
