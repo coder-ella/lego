@@ -35,11 +35,12 @@ num_options = len(main_menu_options)
 # Clear terminal
 print("\x1b[H\x1b[2J", end="")
 
-
+hub.speaker.beep()
+'''
 hub.speaker.play_notes(notes = [
         "D3/8", "C#3/8", "D3/4", "A2/4", "G2/4", 
         ],tempo=220)
-
+'''
 '''
 # default settings
 bob.settings(straight_speed=194, straight_acceleration=727

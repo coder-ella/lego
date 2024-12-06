@@ -26,6 +26,7 @@ def boat_return(hub, bob, moyrorR, moyrorL):
     bob.settings(straight_acceleration= 300, turn_acceleration= 200)
     hub.light.on(Color.GREEN)
     print("\x1b[H\x1b[2J", end="")
+    moyrorR.run_until_stalled(1000)
 
     bob.straight(100)
     moyrorL.run_until_stalled(300,duty_limit=80)

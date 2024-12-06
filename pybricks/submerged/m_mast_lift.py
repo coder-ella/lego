@@ -28,6 +28,7 @@ def mast_lift(hub, bob, moyrorR, moyrorL):
     print("\x1b[H\x1b[2J", end="")
     
     print("Hold on to your butts...")
+    moyrorR.run_until_stalled(-1000)
     bob.settings(970, 5000)
     bob.settings(straight_speed=250, straight_acceleration=600
     ,turn_rate=150, turn_acceleration=700)
@@ -43,6 +44,7 @@ def mast_lift(hub, bob, moyrorR, moyrorL):
     bob.straight(-220)
     bob.turn(-80)
     bob.straight(-500)
+    #moyrorR.run_until_stalled(1000)
 
     
     hub.display.icon(Icon.SAD)

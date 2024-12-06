@@ -51,7 +51,7 @@ def m_10_1(hub, bob, moyrorR, moyrorL):
     bob.straight(-100)
     bob.turn(45)
     bob.straight(-400)
-    moyrorR.run_until_stalled(1000,duty_limit=50)
+    moyrorR.run_until_stalled(-1000,duty_limit=50)
     #bob.turn(-45)
     '''
     print("Wallsquare")

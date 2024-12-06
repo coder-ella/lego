@@ -29,11 +29,9 @@ def m_09_p2(hub, bob, moyrorR, moyrorL):
     bob.straight(-100) #Starting on 1st bold line on right home'
     print("\x1b[H\x1b[2J", end="")
     print("Initiating Mission 9")
-    bob.settings(straight_speed=300, straight_acceleration=5000
-    ,turn_rate=663, turn_acceleration=13271)
+    bob.settings(straight_speed=300, straight_acceleration=5000,turn_rate=663, turn_acceleration=13271)
     hub.speaker.beep()
-    bob.settings(straight_speed=970, straight_acceleration=9704
-    ,turn_rate=1327, turn_acceleration=13271)
+    bob.settings(straight_speed=970, straight_acceleration=9704,turn_rate=1327, turn_acceleration=13271)
     # change settings back
     bob.settings(straight_acceleration= 300, turn_acceleration= 200)
     print("Leaving Home")
@@ -60,16 +58,16 @@ def m_09_p2(hub, bob, moyrorR, moyrorL):
     moyrorR.run_until_stalled(-2000, duty_limit=190) # dl was 100, then 180 
     #moyrorR.run_angle(500, -160)
     print("Initiating Mission 4")
-    bob.straight(-20)
+    bob.straight(-25)
     print("Mission 2 Completed")
-    moyrorR.run_angle(500, 70) # was 130, then 75
+    moyrorR.run_angle(500, 80) # was 130, then 75, then 70
     hub.speaker.beep()
     print("Turn toward scuba Jimmy")
     hub.speaker.beep()
     bob.turn(-25)
     wait(100)
     print("Attempt to ram Scuba Jimmy")
-    bob.straight(110)#was 100
+    bob.straight(110)#was 100, then 110
     print("Initiating Mission 1")
     print("lift Scuba Jimmy")
     #moyrorR.run_until_stalled(1000, duty_limit=50)
@@ -108,6 +106,8 @@ if __name__ == '__main__':
     moyrorL = Motor(Port.E)
     bob = DriveBase(left_motor = motor_left, right_motor=motor_right,
     wheel_diameter = 55.6, axle_track = 83.79999999999997)
+
+    moyrorR.run_until_stalled(500)
 
     # call your function.
     # remember to rename the below name to match
